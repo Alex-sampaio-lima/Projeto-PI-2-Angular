@@ -1,0 +1,39 @@
+{
+    "pedidos": [
+        {
+            "id": 1,
+            "tipo_pedido": "Salgados",
+            "forma_pagamento": "Cartão de crédito",
+            "valor_total": 199.99,
+            "status": "Realizado",
+            "observacoes": "Mais coxinhas que kibes",
+            "cliente_id": 2,
+            "created_at": "2025-05-06",
+            "updated_at": "2025-05-06"
+        },
+        {
+            "id": 2,
+            "tipo_pedido": "Salgados",
+            "forma_pagamento": "Cartão de crédito",
+            "valor_total": 199.99,
+            "status": "Realizado",
+            "observacoes": "Mais coxinhas que kibes",
+            "cliente_id": 2,
+            "created_at": "2025-05-06",
+            "updated_at": "2025-05-06"
+        },
+        {
+            "id": 3,
+            "tipo_pedido": "Salgados",
+            "forma_pagamento": "Cartão de crédito",
+            "valor_total": 199.99,
+            "status": "Realizado",
+            "observacoes": "Mais coxinhas que kibes",
+            "cliente_id": 2,
+            "created_at": "2025-05-06",
+            "updated_at": "2025-05-06"
+        }
+    ],
+    "clientes": [],
+    "estoque": []
+}

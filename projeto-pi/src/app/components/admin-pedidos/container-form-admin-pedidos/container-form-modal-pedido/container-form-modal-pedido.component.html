@@ -1,0 +1,82 @@
+<div class="container-form-pedido">
+    <div class="container-title-pedido">
+        <h1 class="title-pedido">Adicionar Pedido</h1>
+        <button class="btn-close-modal" type="button" (click)="onNoClick()">X</button>
+    </div>
+    <div class="container-title-cliente">
+        <h1 class="title-cliente">Dados do Cliente</h1>
+    </div>
+
+    <form class="container-inputs" action="" method="post">
+        <div class="container-form-nome-default">
+            <div class="container-default">
+                <label for="nome">Nome</label>
+                <input class="container-input-default" type="text" name="nome" id="nome"
+                    placeholder="Ex: Digite o nome do cliente">
+            </div>
+            <div class="container-default">
+                <label for="telefone">Telefone</label>
+                <input class="container-input-default" type="text" name="telefone" id="telefone"
+                    placeholder="Ex: Digite o telefone do cliente">
+            </div>
+        </div>
+
+        <div class="container-form-nome-default">
+            <div class="container-default">
+                <label for="">Email</label>
+                <input class="container-input-default" type="email" name="email" id="email"
+                    placeholder="Ex: Digite o nome E-mail do cliente">
+            </div>
+            <div class="container-default">
+                <label for="cpf">CPF</label>
+                <input class="container-input-default" type="text" name="cpf" id="cpf"
+                    placeholder="Ex: Digite o CPF do cliente">
+            </div>
+        </div>
+
+        <div class="container-title-cliente">
+            <h1 class="title-cliente">Dados do Pedido</h1>
+        </div>
+
+
+        <div class="container-form-nome-default">
+            <div class="container-default">
+                <label for="tipo">Tipo</label>
+                <input [(ngModel)]="pedido().tipo_pedido" class="container-input-default" type="text" name="tipo"
+                    id="tipo" placeholder="Ex: Bolo para festa de casamento">
+            </div>
+            <div class="container-default">
+                <label for="formaDePagamento">Forma de pagamento</label>
+                <input [(ngModel)]="pedido().forma_pagamento" class="container-input-default" type="text"
+                    name="formaDePagamento" id="formaDePagamento" placeholder="Ex: Débito">
+            </div>
+        </div>
+        <div class="container-form-nome-default">
+            <div class="container-default">
+                <label for="valorTotal">Valor Total</label>
+                <input [(ngModel)]="pedido().valor_total" class="container-input-default" type="number"
+                    name="valorTotal" id="valorTotal" placeholder="Ex: 320 R$">
+            </div>
+            <div class="container-default">
+                <label for="status">Status</label>
+                <input [(ngModel)]="pedido().status" class="container-input-default" type="text" name="status"
+                    id="formaDePagamento" placeholder="Ex: pendente">
+            </div>
+        </div>
+        <div class="container-form-nome-default">
+            <div class="container-default">
+                <label for="observacoes">Observações</label>
+                <input [(ngModel)]="pedido().observacoes" class="container-input-default" type="text" name="observacoes"
+                    id="observacoes" placeholder="Ex: Recheio de leite condensado">
+            </div>
+            <!-- <div class="container-default">
+                <label for="realizacaoDoPedido">Data da Realização do Pedido</label>
+                <input [(ngModel)]="pedido().created_at" class="container-input-default" type="date"
+                    name="realizacaoDoPedido" id="realizacaoDoPedido" placeholder="Ex: 20/04/2025">
+            </div> -->
+        </div>
+        <div class="container-btn-submit-form">
+            <button class="btn-submit-form" type="button" (click)="criarPedido()">Enviar</button>
+        </div>
+    </form>
+</div>

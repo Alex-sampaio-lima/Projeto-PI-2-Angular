@@ -1,0 +1,15 @@
+.container-principal-register {
+    display: flex;
+    max-width: 100%;
+    width: 1312px;
+    height: 800px;
+    border-radius: 40px;
+    margin: 15% auto;
+}
+
+
+@media(max-width: 768px) {
+    .container-principal-register {
+        flex-direction: column;
+    }
+}
