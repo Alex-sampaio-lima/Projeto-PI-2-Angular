@@ -1,39 +1,78 @@
 {
-    "pedidos": [
-        {
-            "id": 1,
-            "tipo_pedido": "Salgados",
-            "forma_pagamento": "Cartão de crédito",
-            "valor_total": 199.99,
-            "status": "Realizado",
-            "observacoes": "Mais coxinhas que kibes",
-            "cliente_id": 2,
-            "created_at": "2025-05-06",
-            "updated_at": "2025-05-06"
-        },
-        {
-            "id": 2,
-            "tipo_pedido": "Salgados",
-            "forma_pagamento": "Cartão de crédito",
-            "valor_total": 199.99,
-            "status": "Realizado",
-            "observacoes": "Mais coxinhas que kibes",
-            "cliente_id": 2,
-            "created_at": "2025-05-06",
-            "updated_at": "2025-05-06"
-        },
-        {
-            "id": 3,
-            "tipo_pedido": "Salgados",
-            "forma_pagamento": "Cartão de crédito",
-            "valor_total": 199.99,
-            "status": "Realizado",
-            "observacoes": "Mais coxinhas que kibes",
-            "cliente_id": 2,
-            "created_at": "2025-05-06",
-            "updated_at": "2025-05-06"
-        }
-    ],
-    "clientes": [],
-    "estoque": []
+  "pedidos": [
+    {
+      "id": 1,
+      "tipo_pedido": "Salgados",
+      "forma_pagamento": "Cartão de crédito",
+      "valor_total": 199.99,
+      "status": "Realizado",
+      "observacoes": "Mais coxinhas que kibes",
+      "cliente_id": 2,
+      "created_at": "2025-05-06",
+      "updated_at": "2025-05-06"
+    },
+    {
+      "id": 2,
+      "tipo_pedido": "Bolo de aniversário",
+      "forma_pagamento": "Cartão de crédito",
+      "valor_total": 199.99,
+      "status": "Realizado",
+      "observacoes": "Mais coxinhas que kibes",
+      "cliente_id": 2,
+      "created_at": "2025-05-06",
+      "updated_at": "06/05/2025, 00:44:25"
+    },
+    {
+      "id": 3,
+      "tipo_pedido": "Kit Festa",
+      "forma_pagamento": "Cartão de crédito",
+      "valor_total": 199.99,
+      "status": "Realizado",
+      "observacoes": "Para crianças de até 10 anos",
+      "cliente_id": 1,
+      "created_at": "2025-05-06",
+      "updated_at": "06/05/2025, 00:44:42"
+    },
+    {
+      "tipo_pedido": "Bolo para empresa",
+      "forma_pagamento": "Débito",
+      "status": "Pendente",
+      "observacoes": "Fazer até amanhã essa merda ",
+      "valor_total": 321,
+      "created_at": "06/05/2025, 00:41:38",
+      "updated_at": "06/05/2025, 00:44:54",
+      "id": 4
+    },
+    {
+      "tipo_pedido": "Bolo de aniversário",
+      "forma_pagamento": "Crédito",
+      "status": "Realizado",
+      "observacoes": "Fazer até amanhã essa merda ",
+      "valor_total": 321,
+      "created_at": "06/05/2025, 00:41:40",
+      "updated_at": "06/05/2025, 00:45:50",
+      "id": 5
+    }
+  ],
+  "clientes": [
+    {
+      "id": 1,
+      "nome": "Alexsander Sampaio Lima",
+      "email": "alexsandersampaiolima12@gmail.com",
+      "telefone": "11940264105",
+      "cpf": "53441996860",
+      "created_at": " 2025-05-23",
+      "updated_at": " 2025-05-27"
+    },
+    {
+      "id": 2,
+      "nome": "Marcelo Almeida ",
+      "email": "alexsandersampaiolima12@gmail.com",
+      "telefone": "11940264105",
+      "cpf": "53441996860",
+      "created_at": " 2025-05-23",
+      "updated_at": " 2025-05-27"
+    }
+  ],
+  "estoque": []
 }

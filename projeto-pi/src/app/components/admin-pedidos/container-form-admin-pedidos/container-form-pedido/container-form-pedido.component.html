@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <table>
+    <table class="container-table-pedido">
         <thead>
             <tr class="container-title-check">
                 <th>
@@ -44,8 +44,10 @@
                 <td>{{item.created_at}}</td>
                 <td>{{item.status}}</td>
                 <td class="container-edit-delete-btn">
-                    <button class="icon-button"><i class="material-icons">delete_outline</i></button>
-                    <button class="icon-button"><i class="material-icons">edit</i></button>
+                    <button class="icon-button"><i class="material-icons"
+                            (click)="excluirPedido(item.id)">delete_outline</i></button>
+                    <button class="icon-button"><i class="material-icons"
+                            (click)="verificarAtualizacaoPedidoForm(item.id)">edit</i></button>
                 </td>
             </tr>
             }

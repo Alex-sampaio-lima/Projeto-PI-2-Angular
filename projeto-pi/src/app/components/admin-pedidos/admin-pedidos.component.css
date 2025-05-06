@@ -12,10 +12,11 @@ main {
     display: flex;
     overflow: hidden;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     width: 1312px;
-    height: auto;
+    height: 1000px;
+    /* max-height: auto; */
     /* height: 1050px; */
     background-color: #FFF;
-    border-radius: 48px;
+    border-radius: 20px;
 }

@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Pedido } from '../../pedido';
-import { PedidoService } from '../../pedido.service';
+import { Pedido } from '../../../../../interfaces/pedido';
+import { PedidoService } from '../../../../../services/pedido.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
@@ -15,20 +15,43 @@ import { ContainerFormModalPedidoComponent } from '../container-form-modal-pedid
 })
 
 export class ContainerFormPedidoComponent implements OnInit {
-  private listarPedidosService = inject(PedidoService);
+  private pedidosService = inject(PedidoService);
 
   constructor(public dialog: MatDialog, public pedidoService: PedidoService) { }
 
-  pedidos: Pedido[] = [];
   clientes: any[] = [];
 
+  pedidos: Pedido[] = [];
+  verificaAtualizaPedido = false;
+
+  ngOnInit(): void {
+    this.listarPedidos();
+  }
+
   listarPedidos() {
-    this.listarPedidosService.getAllPedidos().subscribe((data: Pedido[]) => {
+    this.pedidosService.getAllPedidos().subscribe((data: Pedido[]) => {
       this.pedidos = data;
     })
   }
 
-  ngOnInit(): void {
+  verificarAtualizacaoPedidoForm(id: number): boolean {
+    this.pedidoService.idPedido = id;
+    this.openDialog();
+    this.pedidosService.vericaAtualizacao = true;
+    return this.pedidosService.vericaAtualizacao;
+  }
+
+  excluirPedido(id: number): void {
+    this.pedidosService.deletePedido(id).subscribe({
+      next: () => {
+        console.log('Pedido excluido com sucesso !');
+        this.listarPedidos();
+      },
+      error: (err) => {
+        console.error('Erro ao excluir pedido', err);
+
+      }
+    })
     this.listarPedidos();
   }
 
@@ -41,6 +64,10 @@ export class ContainerFormPedidoComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("O modal foi fechado !")
+      this.listarPedidos();
+      console.log("Antes" + this.pedidosService.vericaAtualizacao);
+
+      this.pedidosService.vericaAtualizacao = false;
     })
   }
 }
