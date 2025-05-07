@@ -8,13 +8,13 @@ import { CommonModule } from '@angular/common';
 import { ContainerFormModalPedidoComponent } from '../container-form-modal-pedido/container-form-modal-pedido.component';
 
 @Component({
-  selector: 'app-container-form-pedido',
+  selector: 'app-container-form-pedido-dashboard',
   imports: [HttpClientModule, FormsModule, CommonModule, ContainerFormModalPedidoComponent],
-  templateUrl: './container-form-pedido.component.html',
-  styleUrl: './container-form-pedido.component.css'
+  templateUrl: './container-form-pedido-dashboard.component.html',
+  styleUrl: './container-form-pedido-dashboard.component.css'
 })
 
-export class ContainerFormPedidoComponent implements OnInit {
+export class ContainerFormPedidoDashBoardComponent implements OnInit {
   private pedidosService = inject(PedidoService);
 
   constructor(public dialog: MatDialog, public pedidoService: PedidoService) { }

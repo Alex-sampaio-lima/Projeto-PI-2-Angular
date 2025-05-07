@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PedidoService } from '../../../../../services/pedido.service';
 import { Pedido } from '../../../../../interfaces/pedido';
 import { FormsModule } from '@angular/forms';
-import { ContainerFormPedidoComponent } from '../container-form-pedido/container-form-pedido.component';
+import { ContainerFormPedidoDashBoardComponent } from '../container-form-pedido-dashboard/container-form-pedido-dashboard.component';
 
 
 @Component({
