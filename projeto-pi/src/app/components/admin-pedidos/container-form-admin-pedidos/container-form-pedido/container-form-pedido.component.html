@@ -1,7 +1,9 @@
 <!-- Seção DashBoard -->
+<app-container-form-modal-pedido [visible]="modalVisible" (close)="modalVisible = false"
+    (pedidoCriado)="listarPedidos()"></app-container-form-modal-pedido>
 <div class="container-dashBoard-admin-pedido">
     <div class="container-header-dashboard">
-        <button class="btn-add-pedido-modal" type="button" (click)="openDialog()">Adicionar Pedido</button>
+        <button class="btn-add-pedido-modal" type="button" (click)="openModal()">Adicionar Pedido</button>
         <div class="container-icon-btn-pesquisa">
             <span class="container-input-icon">
                 <i class="material-icons" id="icon-pesquisa">search</i>
@@ -25,8 +27,9 @@
             </tr>
         </thead>
         <tbody>
-            <!-- <ng-container *ngFor="let itemCliente of cliente"></ng-container> -->
-            @for (item of pedidos; track item) {
+            <!-- <ng-container *ngFor="let item of pedidos"> -->
+
+            @for (item of pedidos; track item.id) {
             <tr class="container-info-edit-delete">
                 <!-- <tr class="container-info-edit-delete" *ngFor="let item of pedidos"> -->
                 <td>
@@ -51,9 +54,9 @@
                 </td>
             </tr>
             }
+            <!-- </ng-container> -->
         </tbody>
     </table>
-
 </div>
 
 

@@ -9,7 +9,7 @@ import { ContainerFormModalPedidoComponent } from '../container-form-modal-pedid
 
 @Component({
   selector: 'app-container-form-pedido',
-  imports: [HttpClientModule, FormsModule, CommonModule],
+  imports: [HttpClientModule, FormsModule, CommonModule, ContainerFormModalPedidoComponent],
   templateUrl: './container-form-pedido.component.html',
   styleUrl: './container-form-pedido.component.css'
 })
@@ -20,9 +20,9 @@ export class ContainerFormPedidoComponent implements OnInit {
   constructor(public dialog: MatDialog, public pedidoService: PedidoService) { }
 
   clientes: any[] = [];
-
   pedidos: Pedido[] = [];
   verificaAtualizaPedido = false;
+  modalVisible = false;
 
   ngOnInit(): void {
     this.listarPedidos();
@@ -36,7 +36,7 @@ export class ContainerFormPedidoComponent implements OnInit {
 
   verificarAtualizacaoPedidoForm(id: number): boolean {
     this.pedidoService.idPedido = id;
-    this.openDialog();
+    this.openModal();
     this.pedidosService.vericaAtualizacao = true;
     return this.pedidosService.vericaAtualizacao;
   }
@@ -49,25 +49,25 @@ export class ContainerFormPedidoComponent implements OnInit {
       },
       error: (err) => {
         console.error('Erro ao excluir pedido', err);
-
       }
-    })
+    });
     this.listarPedidos();
   }
 
-  openDialog(): void {
+  openModal(): void {
     console.log("O modal foi Aberto");
+    this.modalVisible = true;
+    this.pedidosService.vericaAtualizacao = false;
+    // const dialogRef = this.dialog.open(ContainerFormModalPedidoComponent, {
+    //   width: '800px', height: '1220px', maxWidth: '100%'
+    // });
 
-    const dialogRef = this.dialog.open(ContainerFormModalPedidoComponent, {
-      width: '800px', height: '1220px', maxWidth: '100%'
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log("O modal foi fechado !")
+    //   this.listarPedidos();
+    //   console.log("Antes" + this.pedidosService.vericaAtualizacao);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log("O modal foi fechado !")
-      this.listarPedidos();
-      console.log("Antes" + this.pedidosService.vericaAtualizacao);
-
-      this.pedidosService.vericaAtualizacao = false;
-    })
+    //   this.pedidosService.vericaAtualizacao = false;
+    // })
   }
 }

@@ -186,15 +186,5 @@
 
 /* Style DashBoard admin Estoque */
 
-.container-dashboard-admin {
-    display: flex;
-    width: 100%;
-    height: 668px;
-    flex-direction: column;
-    align-items: center;
-    align-self: stretch;
-    gap: 10px;
-    border: 1px solid black;
-}
 
 

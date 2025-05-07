@@ -36,7 +36,7 @@ export class PedidoService implements OnInit {
     return this.httpClient.get<Pedido[]>(this.urlPedido);
   };
 
-  postPedido(pedido: Omit<Pedido, 'id' | 'created_at' | 'updated_at'>): Observable<Pedido> {
+  postPedido(pedido: Omit<Pedido, 'id' | 'created_at' | 'updated_at' | 'cliente_id'>): Observable<Pedido> {
     const pedidoCompleto = {
       ...pedido,
       created_at: new Date().toLocaleString(),

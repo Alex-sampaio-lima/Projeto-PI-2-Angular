@@ -2,7 +2,7 @@ export interface Pedido {
     id: number;
     tipo_pedido: string;
     forma_pagamento: string;
-    valor_total: number;
+    valor_total: number | null;
     status: string;
     observacoes: string;
     cliente_id: number;

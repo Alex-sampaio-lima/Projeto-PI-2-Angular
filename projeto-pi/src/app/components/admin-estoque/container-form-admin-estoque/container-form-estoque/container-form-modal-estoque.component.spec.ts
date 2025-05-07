@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContainerFormEstoqueComponent } from './container-form-estoque.component';
+import { ContainerFormEstoqueComponent } from './container-form-modal-estoque.component';
 
 describe('ContainerFormEstoqueComponent', () => {
   let component: ContainerFormEstoqueComponent;

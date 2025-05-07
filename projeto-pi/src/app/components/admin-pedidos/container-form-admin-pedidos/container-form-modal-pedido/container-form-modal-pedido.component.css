@@ -5,7 +5,8 @@
     align-self: stretch;
     width: 100%;
     gap: 10px;
-    height: 100vh;
+    /* height: 100%; */
+    height: auto;
     justify-content: center;
     background-color: #ffffff;
 }
@@ -14,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 100%;
     width: 568px;
     height: 40px;
 }
@@ -21,7 +23,7 @@
 .title-pedido {
     /* width: 100%; */
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: "Abhaya Libre";
+    font-family: var(--font-primary);
     font-size: 22px;
     font-style: normal;
     font-weight: 700;
@@ -35,11 +37,11 @@
 
 .btn-close-modal {
     display: flex;
+    max-width: 100%;
     width: 88px;
     height: 37px;
     padding: 10px 20px;
-    border-radius: 25px;
-    /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
+    border-radius: 10px;
     background: linear-gradient(180deg, #D9308D 50%, #73194B 100%);
     justify-content: center;
     align-items: center;
@@ -64,6 +66,7 @@
 
 .container-title-cliente {
     display: flex;
+    max-width: 100%;
     width: 568px;
     height: 40px;
     padding: 10px 8px;
@@ -73,6 +76,7 @@
 
 .title-cliente {
     display: flex;
+    max-width: 100%;
     width: 137px;
     height: 32px;
     flex-direction: column;
@@ -93,8 +97,10 @@
 
 .container-inputs {
     display: flex;
+    max-width: 100%;
     width: 568px;
-    height: 566px;
+    height: auto;
+    /* height: 100%; */
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -103,17 +109,20 @@
 
 .container-form-nome-default {
     display: flex;
-    width: 552px;
-    height: 60px;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    width: 552px;
+    height: auto;
+    /* height: 60px; */
     gap: 24px;
 }
 
 .container-default {
     display: flex;
+    width: 100%;
     height: 60px;
-    width: 264px;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
@@ -132,7 +141,8 @@
 
 .container-input-default {
     display: flex;
-    width: 264px;
+    /* max-width: 100%; */
+    width: 100%;
     height: 36px;
     padding: 10px;
     align-items: center;
@@ -159,6 +169,7 @@
 
 .container-btn-submit-form {
     display: flex;
+    max-width: 100%;
     width: 552px;
     height: 37px;
     flex-direction: column;
@@ -172,6 +183,7 @@
 
 .btn-submit-form {
     display: flex;
+    max-width: 100%;
     width: 88px;
     height: 37px;
     padding: 10px 20px;
@@ -192,21 +204,53 @@
     letter-spacing: 0.2px;
     border: none;
     transition: transform 0.5s ease;
+    cursor: pointer;
 }
 
 .btn-submit-form:hover {
     transform: scale(1.05);
 }
 
+/* Seção Modal */
 
-/* Seção do Modal (Já existente do Angular) */
-
-
-:host ::ng-deep .mat-mdc-dialog-container {
-    /* Estilos específicos para este diálogo */
-    border: 5px solid #6bb814;
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    border: 1px solid black;
 }
 
-/* .mat-mdc-dialog-surface mdc-dialog__surface {
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 70px;
+    height: 1200px;
+    max-width: 800px;
+    height: auto;
+    width: 100%;
+    /* height: 736px; */
+    /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); */
+    box-shadow: 4px 4px 20px 20px #d9308d38;
+    position: relative;
+}
 
-} */
+.close-btn {
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid rgb(187, 187, 187);
+}
+
+.close-btn:hover {
+    background: white;
+    color: #D9308D;
+    border: 1px solid #D9308D;
+    font-size: 16px;
+}
