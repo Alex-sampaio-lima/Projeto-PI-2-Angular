@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContainerFormEstoqueComponent } from './container-form-modal-estoque.component';
+import { ContainerFormModalEstoqueComponent } from './container-form-modal-estoque.component';
 
-describe('ContainerFormEstoqueComponent', () => {
-  let component: ContainerFormEstoqueComponent;
-  let fixture: ComponentFixture<ContainerFormEstoqueComponent>;
+describe('ContainerFormModalEstoqueComponent', () => {
+  let component: ContainerFormModalEstoqueComponent;
+  let fixture: ComponentFixture<ContainerFormModalEstoqueComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContainerFormEstoqueComponent]
+      imports: [ContainerFormModalEstoqueComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
-    fixture = TestBed.createComponent(ContainerFormEstoqueComponent);
+    fixture = TestBed.createComponent(ContainerFormModalEstoqueComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

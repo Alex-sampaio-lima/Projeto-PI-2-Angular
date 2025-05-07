@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './container-form-modal-estoque.component.html',
   styleUrl: './container-form-modal-estoque.component.css',
 })
-export class ContainerFormEstoqueComponent implements OnInit {
+export class ContainerFormModalEstoqueComponent implements OnInit {
   @Input() visible = false;
   @Output() close = new EventEmitter<void>();
 
@@ -35,7 +35,7 @@ export class ContainerFormEstoqueComponent implements OnInit {
   }
 
   listarEstoque() {
-    
+
   }
 
 
