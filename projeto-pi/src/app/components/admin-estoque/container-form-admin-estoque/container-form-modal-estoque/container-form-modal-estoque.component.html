@@ -47,14 +47,15 @@
                 <div class="container-form-nome-default">
                     <div class="container-default">
                         <label for="quantidade">Quantidade</label>
-                        <input
+                        <input (focus)="estoque.quantidade == null ? 0 : estoque.quantidade"
                             (change)="atualizarEstoque(this.estoqueService.idEstoque, 'quantidade', estoque.quantidade)"
                             [(ngModel)]="estoque.quantidade" class="container-input-default" type="number"
                             name="quantidade" id="quantidade" placeholder="Ex: 4">
                     </div>
                     <div class="container-default">
                         <label for="custoUnitario">Custo Unitário</label>
-                        <input [(ngModel)]="estoque.custo_unitario"
+                        <input [value]="estoque.quantidade == null ? 0 : estoque.quantidade"
+                            [(ngModel)]="estoque.custo_unitario"
                             (change)="atualizarEstoque(this.estoqueService.idEstoque, 'custo_unitario', estoque.custo_unitario)"
                             class="container-input-default" type="number" name="custo_unitario" id="custoUnitario"
                             placeholder="Ex: 39.99">

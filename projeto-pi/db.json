@@ -112,24 +112,13 @@
     {
       "nome_produto": "",
       "tipo_produto": "",
-      "quantidade": 4,
-      "custo_unitario": null,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "08/05/2025, 02:51:16",
-      "updated_at": "08/05/2025, 02:51:46",
-      "id": 7
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 2,
-      "custo_unitario": null,
+      "quantidade": 0,
+      "custo_unitario": 0,
       "observacoes": "",
       "unidade_medida": "",
-      "created_at": "08/05/2025, 02:51:17",
-      "updated_at": "08/05/2025, 02:51:40",
-      "id": 8
+      "created_at": "08/05/2025, 03:08:29",
+      "updated_at": "08/05/2025, 03:08:29",
+      "id": 6
     }
   ]
 }

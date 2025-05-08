@@ -28,8 +28,8 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
   estoque = <Omit<Estoque, 'id' | 'created_at' | 'updated_at'>>({
     nome_produto: '',
     tipo_produto: '',
-    quantidade: null,
-    custo_unitario: null,
+    quantidade: 0,
+    custo_unitario: 0,
     unidade_medida: '',
     observacoes: ''
   });
@@ -50,6 +50,9 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
     this.listarEstoque();
   };
 
+
+
+  
   listarEstoque() {
     this.estoqueService.getAllEstoque().subscribe((data: Estoque[]) => {
       this.estoqueData = data;
@@ -74,8 +77,6 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
     this.estoqueCriado.emit();
     this.resetForm();
   };
-
-
 
   atualizarEstoque(id: number, campo: string, valor: any) {
     console.log("Entrou no atualizar");
@@ -102,8 +103,8 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
     this.estoque = {
       nome_produto: '',
       tipo_produto: '',
-      quantidade: null,
-      custo_unitario: null,
+      quantidade: 0,
+      custo_unitario: 0,
       observacoes: '',
       unidade_medida: ''
     };
