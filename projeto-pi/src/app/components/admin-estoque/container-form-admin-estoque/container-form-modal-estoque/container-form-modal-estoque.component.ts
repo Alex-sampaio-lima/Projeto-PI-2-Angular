@@ -49,9 +49,6 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
   ngOnInit(): void {
     this.listarEstoque();
   };
-
-
-
   
   listarEstoque() {
     this.estoqueService.getAllEstoque().subscribe((data: Estoque[]) => {

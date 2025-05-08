@@ -15,7 +15,6 @@ export class EstoqueService {
   estoqueForm = ({});
   itensEmEstoque: Array<Estoque> = [];
   itensEmBaixoEstoque: Array<Estoque> = [];
-  // itensEmBaixoEstoque: number = 0;
 
   verificarItensEstoque(data: Observable<Estoque[]>) {
     data.subscribe(dataEstoque => {
@@ -29,9 +28,9 @@ export class EstoqueService {
     data.subscribe(dataEstoque => {
       this.itensEmBaixoEstoque = dataEstoque.filter(item => item.quantidade !== null && item.quantidade <= 5);
       console.info(this.itensEmBaixoEstoque);
-    })
-  }
-
+    });
+  };]
+  
   getAllEstoque() {
     let data: Observable<Estoque[]>;
     data = this.httpClient.get<Estoque[]>(this.urlEstoque);

@@ -1,7 +1,7 @@
 {
   "pedidos": [
     {
-      "id": 1,
+      "id": "1",
       "tipo_pedido": "Salgados",
       "forma_pagamento": "Cartão de crédito",
       "valor_total": 199.99,
@@ -12,7 +12,7 @@
       "updated_at": "2025-05-06"
     },
     {
-      "id": 2,
+      "id": "2",
       "tipo_pedido": "Bolo de aniversário",
       "forma_pagamento": "Cartão de crédito",
       "valor_total": 199.99,
@@ -23,30 +23,39 @@
       "updated_at": "06/05/2025, 00:44:25"
     },
     {
-      "id": 3,
+      "id": "3",
       "tipo_pedido": "Kit Festa",
       "forma_pagamento": "Cartão de crédito",
       "valor_total": 199.99,
-      "status": "Pendente",
+      "status": "Realizado",
       "observacoes": "Para crianças de até 10 anos",
       "cliente_id": 1,
       "created_at": "2025-05-06",
-      "updated_at": "06/05/2025, 23:20:01"
+      "updated_at": "06/05/2025, 00:44:42"
     },
     {
-      "tipo_pedido": "Mandioca",
-      "forma_pagamento": "Crédito",
-      "valor_total": 321,
-      "status": "Pendente",
-      "observacoes": "Fazer até amanhã essa merda ",
-      "created_at": "07/05/2025, 18:26:55",
-      "updated_at": "07/05/2025, 19:10:12",
-      "id": 4
+      "id": "c351",
+      "tipo_pedido": "",
+      "forma_pagamento": "Débito",
+      "status": "",
+      "observacoes": "Fazer sem chocolate",
+      "created_at": "06/05/2025, 10:46:52",
+      "updated_at": "06/05/2025, 10:47:39"
+    },
+    {
+      "id": "84ed",
+      "tipo_pedido": "",
+      "forma_pagamento": "",
+      "valor_total": null,
+      "status": "",
+      "observacoes": "",
+      "created_at": "08/05/2025, 12:31:34",
+      "updated_at": "08/05/2025, 12:31:34"
     }
   ],
   "clientes": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Alexsander Sampaio Lima",
       "email": "alexsandersampaiolima12@gmail.com",
       "telefone": "11940264105",
@@ -55,70 +64,70 @@
       "updated_at": " 2025-05-27"
     },
     {
-      "id": 2,
+      "id": "2",
       "nome": "Marcelo Almeida ",
-      "email": "marceloalmeida@gmail.com",
-      "telefone": "11920253121",
-      "cpf": "5443195660",
+      "email": "alexsandersampaiolima12@gmail.com",
+      "telefone": "11940264105",
+      "cpf": "53441996860",
       "created_at": " 2025-05-23",
       "updated_at": " 2025-05-27"
     }
   ],
   "estoque": [
     {
+      "id": "276f",
+      "nome_produto": "Farinha de Trigo",
+      "tipo_produto": "Ingrediente",
+      "quantidade": 5,
+      "custo_unitario": 5,
+      "observacoes": "Falta comprar mais 6 desse ",
+      "unidade_medida": "kg",
+      "created_at": "08/05/2025, 11:49:56",
+      "updated_at": "08/05/2025, 12:03:57"
+    },
+    {
+      "id": "d656",
       "nome_produto": "Creme de Leite",
       "tipo_produto": "Ingrediente",
-      "quantidade": 23,
-      "custo_unitario": 23,
-      "observacoes": "Para crianças de até 10 anos",
-      "created_at": "07/05/2025, 18:00:47",
-      "updated_at": "08/05/2025, 01:06:49",
-      "id": 2,
-      "unidade_medida": "ml"
+      "quantidade": 6,
+      "custo_unitario": 3,
+      "observacoes": "Muito caro !",
+      "unidade_medida": "ml",
+      "created_at": "08/05/2025, 12:06:49",
+      "updated_at": "08/05/2025, 12:10:11"
     },
     {
-      "nome_produto": "Massa de Bolo",
-      "tipo_produto": "Ingrediente",
-      "quantidade": 23,
-      "custo_unitario": 68,
-      "observacoes": "Está muito caro, comprar menos desse",
-      "created_at": "07/05/2025, 18:04:02",
-      "updated_at": "08/05/2025, 01:13:37",
-      "id": 3,
-      "unidade_medida": "ml"
-    },
-    {
+      "id": "5747",
       "nome_produto": "Leite",
       "tipo_produto": "Ingrediente",
-      "quantidade": 10,
-      "custo_unitario": 4,
-      "unidade_medida": "ml",
-      "observacoes": "",
-      "created_at": "08/05/2025, 01:15:48",
-      "updated_at": "08/05/2025, 01:15:48",
-      "id": 4
+      "quantidade": 25,
+      "custo_unitario": 10,
+      "unidade_medida": "kg",
+      "observacoes": "Não comprar mais dessa marca",
+      "created_at": "08/05/2025, 12:29:15",
+      "updated_at": "08/05/2025, 12:29:15"
     },
     {
-      "nome_produto": "Biscoito Recheado",
-      "tipo_produto": "Ingrediente",
-      "quantidade": 3,
-      "custo_unitario": 8.99,
-      "observacoes": "Comprei esse biscoito para fazer torta holandesa",
-      "unidade_medida": "g",
-      "created_at": "08/05/2025, 02:01:37",
-      "updated_at": "08/05/2025, 02:48:14",
-      "id": 5
-    },
-    {
+      "id": "0da7",
       "nome_produto": "",
       "tipo_produto": "",
       "quantidade": 0,
       "custo_unitario": 0,
       "observacoes": "",
       "unidade_medida": "",
-      "created_at": "08/05/2025, 03:08:29",
-      "updated_at": "08/05/2025, 03:08:29",
-      "id": 6
+      "created_at": "08/05/2025, 12:30:31",
+      "updated_at": "08/05/2025, 12:30:31"
+    },
+    {
+      "id": "81c3",
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-08T15:53:11.708Z",
+      "updated_at": "2025-05-08T15:53:11.708Z"
     }
   ]
 }
