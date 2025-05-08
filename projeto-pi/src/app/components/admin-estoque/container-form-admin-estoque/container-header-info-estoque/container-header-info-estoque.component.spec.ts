@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ContainerHeaderInfoPedidosComponent } from './container-header-info-pedidos.component';
+import { ContainerHeaderInfoEstoqueComponent } from './container-header-info-estoque.component';
 
 describe('ContainerHeaderInfoPedidosComponent', () => {
-  let component: ContainerHeaderInfoPedidosComponent;
-  let fixture: ComponentFixture<ContainerHeaderInfoPedidosComponent>;
+  let component: ContainerHeaderInfoEstoqueComponent;
+  let fixture: ComponentFixture<ContainerHeaderInfoEstoqueComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ContainerHeaderInfoPedidosComponent]
+      imports: [ContainerHeaderInfoEstoqueComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ContainerHeaderInfoPedidosComponent);
+    fixture = TestBed.createComponent(ContainerHeaderInfoEstoqueComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

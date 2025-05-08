@@ -16,10 +16,9 @@ import { ContainerFormPedidoDashBoardComponent } from '../container-form-pedido-
 })
 
 export class ContainerFormModalPedidoComponent implements OnInit {
-  public pedidosService = inject(PedidoService);
-
-
   constructor(public dialogRef: MatDialog) { }
+
+  public pedidosService = inject(PedidoService);
 
   pedidos: Pedido[] = [];
 
@@ -66,7 +65,8 @@ export class ContainerFormModalPedidoComponent implements OnInit {
         this.pedidoCriado.emit();
         this.listarPedidos();
         this.resetForm();
-        this.onClose(); // Fecha o Modal ao criar o pedido
+        // Fecha o Modal ao criar o pedido
+        this.onClose();
       },
       error(error) {
         console.error("Erro ao criar pedido", error);
@@ -84,18 +84,15 @@ export class ContainerFormModalPedidoComponent implements OnInit {
   atualizarPedido(id: number, campo: string, valor: any) {
     console.log("Entrou no Atualizar");
 
-    if (this.pedidosService.vericaAtualizacao) {
-
+    if (this.pedidosService.vericaAtualizacaoPedido) {
       this.pedidosService.updatePedido(id, campo, valor).subscribe({
         next: (response) => {
           console.log(`${campo} atualizado com sucesso !`);
         },
         error: (err) => console.error(`Erro ao atualizar ${campo}:`, err)
       });
-
     } else {
       console.error(`O id: ${id} não foi fornecido !`);
-
     }
   }
 

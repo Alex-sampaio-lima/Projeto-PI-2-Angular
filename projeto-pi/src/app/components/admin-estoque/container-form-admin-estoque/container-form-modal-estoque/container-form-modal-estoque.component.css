@@ -150,11 +150,19 @@
     border-radius: 5px;
     border: 1px solid #DADADA;
     background: #F9FAFB;
+    font-family: var(--font-primary);
     transition: transform 0.3s ease;
 }
 
 .container-input-default:hover {
     transform: scale(1.05);
+    border: 1px solid #D9308D;
+}
+
+.container-input-default:focus {
+    border: 1px solid #D9308D;
+    outline: none;
+    box-shadow: none;
 }
 
 .container-input-default::placeholder {

@@ -2,9 +2,10 @@ export interface Estoque {
     id: number;
     nome_produto: string;
     tipo_produto: string;
-    quantidade: number;
+    quantidade: number | null;
+    custo_unitario: number | null;
     unidade_medida: string;
-    custo_unitario: number;
+    observacoes: string;
     created_at: string;
     updated_at: string;
 }

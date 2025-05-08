@@ -6,7 +6,7 @@ import { ContainerFormEstoqueDashboardComponent } from "./container-form-admin-e
 
 @Component({
   selector: 'app-admin-estoque',
-  imports: [ContainerFormAdminEstoqueComponent, NavBarAdminPedidosComponent, ContainerFormEstoqueDashboardComponent],
+  imports: [ContainerFormAdminEstoqueComponent, NavBarAdminPedidosComponent],
   templateUrl: './admin-estoque.component.html',
   styleUrl: './admin-estoque.component.css'
 })

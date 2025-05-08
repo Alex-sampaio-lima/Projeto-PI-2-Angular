@@ -9,6 +9,7 @@
     align-items: center;
     align-self: stretch;
     gap: 10px;
+    /* border: 2px solid rgb(60, 163, 120); */
 }
 
 .container-title-img {
@@ -27,14 +28,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 248px;
+    width: auto;
     height: 66px;
+    gap: 1.5rem;
 }
 
 .info-title-estoque {
     display: flex;
     align-items: center;
-    width: 152px;
+    width: 100%;
     height: 60px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: var(--font-secondary);

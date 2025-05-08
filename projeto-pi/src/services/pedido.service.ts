@@ -13,7 +13,7 @@ export class PedidoService implements OnInit {
   urlPedido = 'http://localhost:3000/pedidos';
   pedidoForm: FormGroup | undefined;
   idPedido = 0;
-  vericaAtualizacao = false;
+  vericaAtualizacaoPedido = false;
 
   constructor(
     private httpClient: HttpClient,

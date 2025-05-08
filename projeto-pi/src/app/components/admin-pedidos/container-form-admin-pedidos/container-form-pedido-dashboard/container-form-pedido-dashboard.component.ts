@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ContainerFormModalPedidoComponent } from '../container-form-modal-pedido/container-form-modal-pedido.component';
+import { Cliente } from '../../../../../interfaces/cliente';
 
 @Component({
   selector: 'app-container-form-pedido-dashboard',
@@ -15,11 +16,11 @@ import { ContainerFormModalPedidoComponent } from '../container-form-modal-pedid
 })
 
 export class ContainerFormPedidoDashBoardComponent implements OnInit {
-  private pedidosService = inject(PedidoService);
+  private pedidoService = inject(PedidoService);
 
-  constructor(public dialog: MatDialog, public pedidoService: PedidoService) { }
+  constructor(public dialog: MatDialog) { }
 
-  clientes: any[] = [];
+  clientes: Cliente[] = [];
   pedidos: Pedido[] = [];
   verificaAtualizaPedido = false;
   modalVisible = false;
@@ -29,7 +30,7 @@ export class ContainerFormPedidoDashBoardComponent implements OnInit {
   }
 
   listarPedidos() {
-    this.pedidosService.getAllPedidos().subscribe((data: Pedido[]) => {
+    this.pedidoService.getAllPedidos().subscribe((data: Pedido[]) => {
       this.pedidos = data;
     })
   }
@@ -37,12 +38,12 @@ export class ContainerFormPedidoDashBoardComponent implements OnInit {
   verificarAtualizacaoPedidoForm(id: number): boolean {
     this.pedidoService.idPedido = id;
     this.openModal();
-    this.pedidosService.vericaAtualizacao = true;
-    return this.pedidosService.vericaAtualizacao;
+    this.pedidoService.vericaAtualizacaoPedido = true;
+    return this.pedidoService.vericaAtualizacaoPedido;
   }
 
   excluirPedido(id: number): void {
-    this.pedidosService.deletePedido(id).subscribe({
+    this.pedidoService.deletePedido(id).subscribe({
       next: () => {
         console.log('Pedido excluido com sucesso !');
         this.listarPedidos();
@@ -57,17 +58,6 @@ export class ContainerFormPedidoDashBoardComponent implements OnInit {
   openModal(): void {
     console.log("O modal foi Aberto");
     this.modalVisible = true;
-    this.pedidosService.vericaAtualizacao = false;
-    // const dialogRef = this.dialog.open(ContainerFormModalPedidoComponent, {
-    //   width: '800px', height: '1220px', maxWidth: '100%'
-    // });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log("O modal foi fechado !")
-    //   this.listarPedidos();
-    //   console.log("Antes" + this.pedidosService.vericaAtualizacao);
-
-    //   this.pedidosService.vericaAtualizacao = false;
-    // })
+    this.pedidoService.vericaAtualizacaoPedido = false;
   }
 }
