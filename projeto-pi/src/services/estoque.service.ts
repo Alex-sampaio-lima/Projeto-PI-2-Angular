@@ -29,7 +29,7 @@ export class EstoqueService {
       this.itensEmBaixoEstoque = dataEstoque.filter(item => item.quantidade !== null && item.quantidade <= 5);
       console.info(this.itensEmBaixoEstoque);
     });
-  };]
+  };
   
   getAllEstoque() {
     let data: Observable<Estoque[]>;
