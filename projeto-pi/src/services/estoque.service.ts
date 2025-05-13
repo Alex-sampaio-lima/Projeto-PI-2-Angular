@@ -11,7 +11,7 @@ export class EstoqueService {
   constructor(private httpClient: HttpClient) { }
   urlEstoque = 'http://localhost:3000/estoque'
   verificaAtualizacaoEstoque = false;
-  idEstoque: number = 0;
+  idEstoque: number = 1;
   estoqueForm = ({});
   itensEmEstoque: Array<Estoque> = [];
   itensEmBaixoEstoque: Array<Estoque> = [];
@@ -19,7 +19,7 @@ export class EstoqueService {
   verificarItensEstoque(data: Observable<Estoque[]>) {
     data.subscribe(dataEstoque => {
       this.itensEmEstoque = dataEstoque.filter((item) => item.id != 0);
-      console.log(this.itensEmEstoque.length);
+      // console.log(this.itensEmEstoque.length);
     });
   };
 
@@ -30,7 +30,7 @@ export class EstoqueService {
       console.info(this.itensEmBaixoEstoque);
     });
   };
-  
+
   getAllEstoque() {
     let data: Observable<Estoque[]>;
     data = this.httpClient.get<Estoque[]>(this.urlEstoque);
@@ -38,6 +38,12 @@ export class EstoqueService {
     this.verificarItensBaixoEstoque(data);
     return data;
   };
+
+  getEstoqueById(id: number) {
+    let data: Observable<Estoque[]>;
+    data = this.httpClient.get<Estoque[]>(`${this.urlEstoque}/${id}`);
+    return data;
+  }
 
   postEstoque(estoque: Omit<Estoque, 'id' | 'created_at' | 'updated_at'>): Observable<Estoque> {
     const estoqueCompleto = {
@@ -49,14 +55,19 @@ export class EstoqueService {
     return this.httpClient.post<Estoque>(this.urlEstoque, estoqueCompleto);
   };
 
-  updateEstoque(id: number, campo: string, valor: number | string): Observable<Estoque> {
+  // updateEstoque(id: number, estoque: Partial<Estoque>): Observable<Estoque> {
+  //   return this.httpClient.patch<Estoque>(`${this.urlEstoque}/${id}`, estoque);
+  // };
+
+  updateEstoque(id: number, campo: string, valor: number): Observable<Estoque> {
     const updateData = {
       ...this.estoqueForm,
       updated_at: new Date().toLocaleString(),
       [campo]: valor
-    };
+    }
     return this.httpClient.patch<Estoque>(`${this.urlEstoque}/${id}`, updateData);
   };
+
 
   deletePedido(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${this.urlEstoque}/${id}`);

@@ -29,6 +29,8 @@ export class ContainerFormEstoqueDashboardComponent implements OnInit {
   listarEstoque(): void {
     this.estoqueService.getAllEstoque().subscribe((data: Estoque[]) => {
       this.estoqueData = data;
+      console.log("DATA: ", data);
+
     });
   };
 

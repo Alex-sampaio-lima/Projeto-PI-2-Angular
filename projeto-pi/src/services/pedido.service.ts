@@ -59,5 +59,4 @@ export class PedidoService implements OnInit {
     return this.httpClient.delete<void>(`${this.urlPedido}/${id}`);
   };
 
-
 };
