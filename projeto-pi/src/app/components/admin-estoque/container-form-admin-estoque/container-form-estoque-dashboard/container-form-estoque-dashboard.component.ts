@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, Inject, inject, OnInit } from '@angular/core';
 import { ContainerFormModalEstoqueComponent } from '../container-form-modal-estoque/container-form-modal-estoque.component';
 import { Estoque } from '../../../../../interfaces/estoque';
 import { EstoqueService } from '../../../../../services/estoque.service';
@@ -30,7 +30,6 @@ export class ContainerFormEstoqueDashboardComponent implements OnInit {
     this.estoqueService.getAllEstoque().subscribe((data: Estoque[]) => {
       this.estoqueData = data;
       console.log("DATA: ", data);
-
     });
   };
 
@@ -60,5 +59,6 @@ export class ContainerFormEstoqueDashboardComponent implements OnInit {
     this.modalVisible = true;
     this.estoqueService.idEstoque = id;
   }
+
 
 };

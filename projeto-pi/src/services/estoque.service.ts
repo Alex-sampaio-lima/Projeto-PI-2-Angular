@@ -11,10 +11,11 @@ export class EstoqueService {
   constructor(private httpClient: HttpClient) { }
   urlEstoque = 'http://localhost:3000/estoque'
   verificaAtualizacaoEstoque = false;
-  idEstoque: number = 1;
-  estoqueForm = ({});
+  idEstoque: number = 0;
   itensEmEstoque: Array<Estoque> = [];
   itensEmBaixoEstoque: Array<Estoque> = [];
+  custoTotal: number = 0;
+
 
   verificarItensEstoque(data: Observable<Estoque[]>) {
     data.subscribe(dataEstoque => {
@@ -24,10 +25,20 @@ export class EstoqueService {
   };
 
   verificarItensBaixoEstoque(data: Observable<Estoque[]>) {
-    console.log("Entrou aqui la ele!");
     data.subscribe(dataEstoque => {
       this.itensEmBaixoEstoque = dataEstoque.filter(item => item.quantidade !== null && item.quantidade <= 5);
-      console.info(this.itensEmBaixoEstoque);
+      // console.info(this.itensEmBaixoEstoque);
+    });
+  };
+
+  verificarCustoTotal(data: Observable<Estoque[]>) {
+    data.subscribe(dataEstoque => {
+      this.custoTotal = 0;
+      dataEstoque.forEach(item => {
+        if (item.quantidade != null && item.custo_unitario) {
+          this.custoTotal += item.quantidade * item.custo_unitario;
+        }
+      })
     });
   };
 
@@ -36,6 +47,7 @@ export class EstoqueService {
     data = this.httpClient.get<Estoque[]>(this.urlEstoque);
     this.verificarItensEstoque(data);
     this.verificarItensBaixoEstoque(data);
+    this.verificarCustoTotal(data);
     return data;
   };
 
@@ -55,18 +67,18 @@ export class EstoqueService {
     return this.httpClient.post<Estoque>(this.urlEstoque, estoqueCompleto);
   };
 
-  // updateEstoque(id: number, estoque: Partial<Estoque>): Observable<Estoque> {
-  //   return this.httpClient.patch<Estoque>(`${this.urlEstoque}/${id}`, estoque);
-  // };
-
-  updateEstoque(id: number, campo: string, valor: number): Observable<Estoque> {
-    const updateData = {
-      ...this.estoqueForm,
-      updated_at: new Date().toLocaleString(),
-      [campo]: valor
-    }
-    return this.httpClient.patch<Estoque>(`${this.urlEstoque}/${id}`, updateData);
+  updateEstoque(id: number, estoque: Partial<Estoque>): Observable<Estoque> {
+    return this.httpClient.patch<Estoque>(`${this.urlEstoque}/${id}`, estoque);
   };
+
+  // updateEstoque(id: number, campo: string, valor: number): Observable<Estoque> {
+  //   const updateData = {
+  //     ...this.estoqueForm,
+  //     updated_at: new Date().toLocaleString(),
+  //     [campo]: valor
+  //   }
+  //   return this.httpClient.patch<Estoque>(`${this.urlEstoque}/${id}`, updateData);
+  // };
 
 
   deletePedido(id: number): Observable<void> {

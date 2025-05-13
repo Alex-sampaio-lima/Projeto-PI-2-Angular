@@ -12,5 +12,4 @@ export class ContainerInfoEstoqueComponent {
 
   estoqueService = inject(EstoqueService);
 
-
 }

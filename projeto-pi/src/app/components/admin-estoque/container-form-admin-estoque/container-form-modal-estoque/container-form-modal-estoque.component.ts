@@ -24,24 +24,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class ContainerFormModalEstoqueComponent implements OnInit {
 
   public estoqueService = inject(EstoqueService);
-  group: any;
 
   constructor(private fb: FormBuilder) { }
 
   estoqueForm!: FormGroup;
-  originalEstoque!: Estoque;
+  private alteracoesPendentes: Partial<Estoque> = {};
+  private dadosOriginais: Estoque | null = null;
 
   estoqueData: Estoque[] = [];
-  estoque = <Omit<Estoque, 'id' | 'created_at' | 'updated_at'>>({
-    nome_produto: '',
-    tipo_produto: '',
-    quantidade: 0,
-    custo_unitario: 0,
-    unidade_medida: '',
-    observacoes: ''
-  });
 
-  estoqueID: EstoqueUpdate | undefined;
+  // estoque = <Omit<Estoque, 'id' | 'created_at' | 'updated_at'>>({
+  //   nome_produto: '',
+  //   tipo_produto: '',
+  //   quantidade: 0,
+  //   custo_unitario: 0,
+  //   unidade_medida: '',
+  //   observacoes: ''
+  // });
+
 
   @Input() visible = false;
   @Output() close = new EventEmitter<void>();
@@ -57,7 +57,7 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarEstoque();
-    this.listarEstoquePorID();
+    // this.listarEstoquePorID();
     this.estoqueForm = this.fb.group({
       nome_produto: [''],
       tipo_produto: [''],
@@ -66,7 +66,6 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
       unidade_medida: [''],
       observacoes: ['']
     });
-
   };
 
   listarEstoque() {
@@ -78,9 +77,19 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
   listarEstoquePorID() {
     this.estoqueService.getEstoqueById(this.estoqueService.idEstoque).subscribe({
       next: (data: any) => {
-        this.estoque = data;
+        this.dadosOriginais = { ...data };
+        // this.estoqueForm.patchValue(data);
+        // console.log("Estoque normal = ", this.estoque);
+        console.log("ID no listar", this.estoqueService.idEstoque);
+
+        // console.log("Estoque Form nome = ", this.estoqueForm.value.nome_produto);
+        // console.log("Estoque Form tipo = ", this.estoqueForm.value.tipo_produto);
+        // console.log("Estoque Form quantidade = ", this.estoqueForm.value.quantidade);
+        // console.log("Estoque Form custo = ", this.estoqueForm.value.custo_unitario);
+        // console.log("Estoque Form unidade medida = ", this.estoqueForm.value.unidade_medida);
+        // console.log("Estoque Form observacoes = ", this.estoqueForm.value.observacoes);
         this.resetForm();
-        console.log('Dados do estoque por ID', data);
+        // console.log('ESTOQUE NORMAL', this.estoque);
       },
       error(e) {
         console.error('Erro ao buscar estoque por ID', e);
@@ -88,8 +97,55 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
     });
   };
 
+  campoAlterado(campo: keyof Estoque, valor: any) {
+    if ((this.dadosOriginais && this.dadosOriginais[campo] !== valor) || (this.dadosOriginais == null)) {
+      this.alteracoesPendentes[campo] = valor;
+    } else {
+      // delete this.alteracoesPendentes[campo];
+      console.log('CAIU no delete');
+
+    };
+  };
+
+  limparAlteracoesPendentes() {
+    this.alteracoesPendentes = {};
+  }
+
+  atualizar() {
+    if (this.estoqueForm == null) {
+    } else {
+      console.log(this.estoqueForm.value);
+    }
+
+    // console.log("ID no atualizar", this.estoqueService.idEstoque);
+    if (this.estoqueService.verificaAtualizacaoEstoque) {
+      this.estoqueService.updateEstoque(this.estoqueService.idEstoque, this.alteracoesPendentes).subscribe({
+        next: (response) => {
+          console.log(`Estoque atualiazdo com sucesso ${response} !`);
+          this.estoqueCriado.emit();
+          this.resetForm();
+        },
+        error: (e) => {
+          console.error(`Erro ao atualizar Estoque ! Erro: ${e}`);
+        }
+      });
+    };
+    this.close.emit();
+    this.estoqueCriado.emit();
+    this.listarEstoquePorID();
+  };
+
   criarEstoque() {
-    this.estoqueService.postEstoque(this.estoque).subscribe({
+    const novoEstoque: Omit<Estoque, 'id' | 'created_at' | 'updated_at'> = {
+      nome_produto: this.estoqueForm.value.nome_produto,
+      tipo_produto: this.estoqueForm.value.tipo_produto,
+      quantidade: this.estoqueForm.value.quantidade,
+      custo_unitario: this.estoqueForm.value.custo_unitario,
+      unidade_medida: this.estoqueForm.value.unidade_medida,
+      observacoes: this.estoqueForm.value.observacoes
+    };
+
+    this.estoqueService.postEstoque(novoEstoque).subscribe({
       next: (response) => {
         console.log(`Estoque criado: ${response}`);
         this.estoqueCriado.emit();
@@ -101,75 +157,22 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
     });
   };
 
-  atualizar() {
-
-
-    // const valores = this.estoqueForm.value;
-    // const atualizacoes: Partial<Estoque> = {};
-
-    // for (const key in valores) {
-    //   if (valores[key] !== (this.originalEstoque as any)[key]) {
-    //     atualizacoes[key as keyof Estoque] = valores[key];
-    //   }
-    // }
-
-    // if (Object.keys(atualizacoes).length == 0) {
-    //   console.log('Nenhum campo alterado.');
-    //   return;
-    // }
-
-    // if (this.estoqueService.verificaAtualizacaoEstoque) {
-    //   this.estoqueService.updateEstoque(this.estoqueService.idEstoque, this.estoque).subscribe({
-    //     next: (res) => {
-    //       console.log('Estoque atualizar com sucesso !', res);
-    //     },
-    //     error: (e) => {
-    //       console.error('Erro ao atualizar o estoque', e);
-    //     }
-    //   });
-    // };
-    this.close.emit();
-    this.estoqueCriado.emit();
-    this.listarEstoquePorID();
-    this.resetForm();
-  };
-  campoTeste = '';
-  valor: any;
-
-  atualizarEstoque(id: number) {
-    console.log("Entrou no atualizar");
-    console.log(this.estoque);
-    console.log(this.campoTeste);
-    console.log(this.valor);
-
-
-    if (this.estoqueService.verificaAtualizacaoEstoque) {
-      this.estoqueService.updateEstoque(id, this.campoTeste, this.valor).subscribe({
-        next: (response) => {
-          console.log(`${this.campoTeste} atualiazdo com sucesso !`);
-          this.estoqueCriado.emit();
-        },
-        error: (e) => {
-          console.error(`Erro ao atualizar o campo ${this.campoTeste}\nErro: ${e}`);
-        }
-      });
-    };
-  };
-
   onClose() {
     this.close.emit();
     this.resetForm();
   };
 
   resetForm() {
-    this.estoque = {
+    this.estoqueForm.reset({
       nome_produto: '',
       tipo_produto: '',
       quantidade: 0,
       custo_unitario: 0,
-      observacoes: '',
-      unidade_medida: ''
-    };
+      unidade_medida: '',
+      observacoes: ''
+    });
+    this.limparAlteracoesPendentes();
+    this.dadosOriginais = null;
   };
 
 };

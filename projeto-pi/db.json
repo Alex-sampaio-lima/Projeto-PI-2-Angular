@@ -25,9 +25,9 @@
   "clientes": [],
   "estoque": [
     {
-      "nome_produto": "Leite",
+      "nome_produto": "Pão",
       "tipo_produto": "Ingrediente",
-      "quantidade": 23,
+      "quantidade": 34,
       "custo_unitario": 12,
       "unidade_medida": "ml",
       "observacoes": "Fazer até amanhã essa merda ",
@@ -36,26 +36,37 @@
       "id": 1
     },
     {
-      "nome_produto": "Creme de Leite",
+      "nome_produto": "Leite",
       "tipo_produto": "Ingrediente",
-      "quantidade": 34,
-      "custo_unitario": 12,
+      "quantidade": 23,
+      "custo_unitario": 1,
       "observacoes": "Fazer até amanhã essa merda ",
       "unidade_medida": "ml",
-      "created_at": "12/05/2025, 23:19:17",
-      "updated_at": "13/05/2025, 00:05:32",
+      "created_at": "13/05/2025, 11:25:16",
+      "updated_at": "13/05/2025, 11:25:16",
       "id": 2
     },
     {
-      "nome_produto": "Massa de Bolo",
+      "nome_produto": "Biscoito",
       "tipo_produto": "Ingrediente",
-      "quantidade": 123,
-      "custo_unitario": 42,
+      "quantidade": 23,
+      "custo_unitario": 4.99,
       "unidade_medida": "ml",
-      "observacoes": "Fazer até amanhã essa merda ",
-      "created_at": "13/05/2025, 00:27:24",
-      "updated_at": "13/05/2025, 01:06:08",
+      "observacoes": "Falta comprar mais 5 desses",
+      "created_at": "13/05/2025, 20:29:57",
+      "updated_at": "13/05/2025, 20:29:57",
       "id": 3
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 4223,
+      "custo_unitario": 9.99,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "13/05/2025, 20:29:58",
+      "updated_at": "13/05/2025, 20:29:58",
+      "id": 4
     }
   ]
 }
