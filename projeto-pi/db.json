@@ -25,47 +25,36 @@
   "clientes": [],
   "estoque": [
     {
-      "nome_produto": "Pão",
-      "tipo_produto": "Ingrediente",
-      "quantidade": 34,
-      "custo_unitario": 12,
-      "unidade_medida": "ml",
-      "observacoes": "Fazer até amanhã essa merda ",
-      "created_at": "10/05/2025, 03:16:13",
-      "updated_at": "13/05/2025, 01:07:54",
-      "id": 1
-    },
-    {
-      "nome_produto": "Leite",
-      "tipo_produto": "Ingrediente",
-      "quantidade": 23,
-      "custo_unitario": 1,
-      "observacoes": "Fazer até amanhã essa merda ",
-      "unidade_medida": "ml",
-      "created_at": "13/05/2025, 11:25:16",
-      "updated_at": "13/05/2025, 11:25:16",
-      "id": 2
-    },
-    {
-      "nome_produto": "Biscoito",
+      "nome_produto": "Creme de Leite",
       "tipo_produto": "Ingrediente",
       "quantidade": 23,
       "custo_unitario": 4.99,
       "unidade_medida": "ml",
-      "observacoes": "Falta comprar mais 5 desses",
-      "created_at": "13/05/2025, 20:29:57",
-      "updated_at": "13/05/2025, 20:29:57",
-      "id": 3
+      "observacoes": "Para crianças de até 10 anos",
+      "created_at": "2025-05-14T03:38:28.877Z",
+      "updated_at": "2025-05-14T03:38:28.877Z",
+      "id": 1
+    },
+    {
+      "nome_produto": "Pão",
+      "tipo_produto": "Ingrediente",
+      "quantidade": 23,
+      "custo_unitario": 24.5,
+      "unidade_medida": "g",
+      "observacoes": "Fazer sem chocolate",
+      "created_at": "2025-05-14T03:39:08.346Z",
+      "updated_at": "2025-05-14T03:39:08.346Z",
+      "id": 2
     },
     {
       "nome_produto": "",
       "tipo_produto": "",
-      "quantidade": 4223,
-      "custo_unitario": 9.99,
+      "quantidade": 0,
+      "custo_unitario": 0,
       "unidade_medida": "",
       "observacoes": "",
-      "created_at": "13/05/2025, 20:29:58",
-      "updated_at": "13/05/2025, 20:29:58",
+      "created_at": "2025-05-14T03:41:50.160Z",
+      "updated_at": "2025-05-14T03:41:50.160Z",
       "id": 4
     }
   ]

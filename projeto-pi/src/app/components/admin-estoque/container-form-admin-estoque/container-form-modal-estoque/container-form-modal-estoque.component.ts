@@ -103,7 +103,6 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
     } else {
       // delete this.alteracoesPendentes[campo];
       console.log('CAIU no delete');
-
     };
   };
 
@@ -112,11 +111,6 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
   }
 
   atualizar() {
-    if (this.estoqueForm == null) {
-    } else {
-      console.log(this.estoqueForm.value);
-    }
-
     // console.log("ID no atualizar", this.estoqueService.idEstoque);
     if (this.estoqueService.verificaAtualizacaoEstoque) {
       this.estoqueService.updateEstoque(this.estoqueService.idEstoque, this.alteracoesPendentes).subscribe({

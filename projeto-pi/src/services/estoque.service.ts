@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Estoque } from '../interfaces/estoque';
-import { filter, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class EstoqueService {
   itensEmEstoque: Array<Estoque> = [];
   itensEmBaixoEstoque: Array<Estoque> = [];
   custoTotal: number = 0;
-
+  esteMes: Array<Estoque> = [];
 
   verificarItensEstoque(data: Observable<Estoque[]>) {
     data.subscribe(dataEstoque => {
@@ -37,17 +37,36 @@ export class EstoqueService {
       dataEstoque.forEach(item => {
         if (item.quantidade != null && item.custo_unitario) {
           this.custoTotal += item.quantidade * item.custo_unitario;
-        }
-      })
+        };
+      });
     });
   };
 
+  verificaEsteMes(data: Observable<Estoque[]>) {
+    let hoje = new Date();
+    let dataCriacao: Date;
+
+    data.subscribe(dataEstoque => {
+      dataEstoque.forEach(item => {
+        dataCriacao = new Date(item.created_at);
+        if (dataCriacao.getMonth == hoje.getMonth) {
+
+        }
+      })
+    });
+
+    data.subscribe(dataEstoque => {
+      this.esteMes = dataEstoque.filter(item => hoje == dataCriacao);
+    });
+
+  };
   getAllEstoque() {
     let data: Observable<Estoque[]>;
     data = this.httpClient.get<Estoque[]>(this.urlEstoque);
     this.verificarItensEstoque(data);
     this.verificarItensBaixoEstoque(data);
     this.verificarCustoTotal(data);
+    this.verificaEsteMes(data);
     return data;
   };
 
@@ -55,13 +74,13 @@ export class EstoqueService {
     let data: Observable<Estoque[]>;
     data = this.httpClient.get<Estoque[]>(`${this.urlEstoque}/${id}`);
     return data;
-  }
+  };
 
   postEstoque(estoque: Omit<Estoque, 'id' | 'created_at' | 'updated_at'>): Observable<Estoque> {
     const estoqueCompleto = {
       ...estoque,
-      created_at: new Date().toLocaleString(),
-      updated_at: new Date().toLocaleString()
+      created_at: new Date(),
+      updated_at: new Date()
     };
     console.log('Payload sendo enviado:', estoqueCompleto);
     return this.httpClient.post<Estoque>(this.urlEstoque, estoqueCompleto);

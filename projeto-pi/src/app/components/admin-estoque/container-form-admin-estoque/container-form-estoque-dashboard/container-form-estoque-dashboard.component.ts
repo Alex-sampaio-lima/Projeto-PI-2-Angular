@@ -14,6 +14,8 @@ export class ContainerFormEstoqueDashboardComponent implements OnInit {
   public estoqueService = inject(EstoqueService);
   modalVisible = false;
   estoqueData: Estoque[] = [];
+  itensEmEstoque: number = 0;
+  dataFormatada: string | undefined;
 
   ngOnInit(): void {
     this.listarEstoque();
@@ -24,23 +26,17 @@ export class ContainerFormEstoqueDashboardComponent implements OnInit {
     this.estoqueService.verificaAtualizacaoEstoque = false;
   };
 
-  itensEmEstoque = 0;
 
   listarEstoque(): void {
     this.estoqueService.getAllEstoque().subscribe((data: Estoque[]) => {
       this.estoqueData = data;
-      console.log("DATA: ", data);
+      data.forEach(item => {
+        const dataObj = new Date(item.created_at);
+        this.dataFormatada = dataObj.toLocaleString('pt-BR');
+      })
+      // console.log("DATA: ", data);
     });
   };
-
-  calcularItensEstoque() {
-    this.estoqueData.forEach(item => {
-      if (item.id != 0) {
-        // this.itensEmEstoque += 1;
-      };
-    });
-  };
-
 
   excluirEstoque(id: number): void {
     this.estoqueService.deletePedido(id).subscribe({
@@ -51,14 +47,12 @@ export class ContainerFormEstoqueDashboardComponent implements OnInit {
       error(e) {
         console.log(`Erro ao excluir o pedido ${e}`);
       }
-    })
-  }
+    });
+  };
 
   verificarAtualizacaoEstoqueForm(id: number) {
     this.estoqueService.verificaAtualizacaoEstoque = true;
     this.modalVisible = true;
     this.estoqueService.idEstoque = id;
-  }
-
-
+  };
 };

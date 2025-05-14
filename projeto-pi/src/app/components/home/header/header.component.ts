@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HomeComponent } from '../home.component';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ViewportScroller } from '@angular/common';
@@ -20,12 +19,6 @@ export class HeaderComponent {
 
   scrollTo(sectionId: string): void {
     const currentUrl = this.router.url.split('#')[0];
-    let a: number = 23;
-    let b: number = 34;
-    let soma: number = 3;
-
-    soma = a * 2 - b;
-    console.log(`O resultado da soma é de ${soma}`)
 
     if (currentUrl === '/home') {
       this.viewportScroller.scrollToAnchor(sectionId);
