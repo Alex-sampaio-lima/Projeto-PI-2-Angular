@@ -33,16 +33,6 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
 
   estoqueData: Estoque[] = [];
 
-  // estoque = <Omit<Estoque, 'id' | 'created_at' | 'updated_at'>>({
-  //   nome_produto: '',
-  //   tipo_produto: '',
-  //   quantidade: 0,
-  //   custo_unitario: 0,
-  //   unidade_medida: '',
-  //   observacoes: ''
-  // });
-
-
   @Input() visible = false;
   @Output() close = new EventEmitter<void>();
   @Output() estoqueCriado = new EventEmitter<void>();
@@ -75,21 +65,10 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
   };
 
   listarEstoquePorID() {
-    this.estoqueService.getEstoqueById(this.estoqueService.idEstoque).subscribe({
+    this.estoqueService.getEstoqueByID(this.estoqueService.idEstoque).subscribe({
       next: (data: any) => {
         this.dadosOriginais = { ...data };
-        // this.estoqueForm.patchValue(data);
-        // console.log("Estoque normal = ", this.estoque);
-        console.log("ID no listar", this.estoqueService.idEstoque);
-
-        // console.log("Estoque Form nome = ", this.estoqueForm.value.nome_produto);
-        // console.log("Estoque Form tipo = ", this.estoqueForm.value.tipo_produto);
-        // console.log("Estoque Form quantidade = ", this.estoqueForm.value.quantidade);
-        // console.log("Estoque Form custo = ", this.estoqueForm.value.custo_unitario);
-        // console.log("Estoque Form unidade medida = ", this.estoqueForm.value.unidade_medida);
-        // console.log("Estoque Form observacoes = ", this.estoqueForm.value.observacoes);
         this.resetForm();
-        // console.log('ESTOQUE NORMAL', this.estoque);
       },
       error(e) {
         console.error('Erro ao buscar estoque por ID', e);
@@ -115,7 +94,7 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
     if (this.estoqueService.verificaAtualizacaoEstoque) {
       this.estoqueService.updateEstoque(this.estoqueService.idEstoque, this.alteracoesPendentes).subscribe({
         next: (response) => {
-          console.log(`Estoque atualiazdo com sucesso ${response} !`);
+          console.log(`Estoque atualiazdo com sucesso ! ${response}`);
           this.estoqueCriado.emit();
           this.resetForm();
         },

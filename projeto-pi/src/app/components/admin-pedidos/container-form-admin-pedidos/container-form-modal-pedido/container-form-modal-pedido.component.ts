@@ -4,62 +4,116 @@ import { Component, EventEmitter, HostListener, inject, Input, OnInit, Output } 
 import { MatDialog } from '@angular/material/dialog';
 import { PedidoService } from '../../../../../services/pedido.service';
 import { Pedido } from '../../../../../interfaces/pedido';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContainerFormPedidoDashBoardComponent } from '../container-form-pedido-dashboard/container-form-pedido-dashboard.component';
 
 
 @Component({
   selector: 'app-container-form-modal-pedido',
-  imports: [HttpClientModule, FormsModule, CommonModule],
+  imports: [HttpClientModule, FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './container-form-modal-pedido.component.html',
   styleUrl: './container-form-modal-pedido.component.css'
 })
 
 export class ContainerFormModalPedidoComponent implements OnInit {
-  constructor(public dialogRef: MatDialog) { }
 
-  public pedidosService = inject(PedidoService);
+  public pedidoService = inject(PedidoService);
 
-  pedidos: Pedido[] = [];
+  constructor(public dialogRef: MatDialog, private fb: FormBuilder) { }
 
-  pedido = <Omit<Pedido, 'id' | 'created_at' | 'updated_at' | 'cliente_id'>>({
-    tipo_pedido: '',
-    forma_pagamento: '',
-    valor_total: null,
-    status: '',
-    observacoes: '',
-  })
+  pedidoForm!: FormGroup;
+  private alteracoesPendentesPedido: Partial<Pedido> = {};
+  private dadosOriginaisPedido: Pedido | null = null;
+
+  pedidoData: Pedido[] = [];
 
   @Input() visible = false;
   @Output() close = new EventEmitter<void>();
-
   @Output() pedidoCriado = new EventEmitter<void>();
 
   ngOnInit(): void {
     this.listarPedidos();
+
+    this.pedidoForm = this.fb.group({
+      tipo_pedido: [''],
+      forma_pagamento: [''],
+      valor_total: [''],
+      status: [''],
+      observacoes: [''],
+    });
   }
 
   @HostListener('document:keydown.escape', ['$event'])
-
   onEscKey(event: KeyboardEvent) {
     if (this.visible) {
       this.onClose();
-    }
-  }
+    };
+  };
 
   onClose() {
     this.close.emit();
     this.listarPedidos();
-  }
+  };
 
   listarPedidos() {
-    this.pedidosService.getAllPedidos().subscribe((data: Pedido[]) => {
-      this.pedidos = data;
-    })
-  }
+    this.pedidoService.getAllPedidos().subscribe((data: Pedido[]) => {
+      this.pedidoData = data;
+    });
+  };
+
+  listarPedidoPorID() {
+    this.pedidoService.getPedidoByID(this.pedidoService.idPedido).subscribe({
+      next: (data: any) => {
+        this.dadosOriginaisPedido = { ...data };
+        this.resetForm();
+      },
+      error(e) {
+        console.error('Erro ao buscar pedido pelo ID', e);
+      }
+    });
+  };
+
+  campoAlterado(campo: keyof Pedido, valor: any) {
+    if ((this.dadosOriginaisPedido && this.dadosOriginaisPedido[campo] !== valor) || (this.dadosOriginaisPedido == null)) {
+      this.alteracoesPendentesPedido[campo] = valor;
+    } else {
+      console.log("CAIU NO DELETE");
+    };
+  };
+
+  limparAlteracoesPendentes() {
+    this.alteracoesPendentesPedido = {};
+  };
+
+  atualizar() {
+
+    if (this.pedidoService.vericaAtualizacaoPedido) {
+      this.pedidoService.updatePedido(this.pedidoService.idPedido, this.alteracoesPendentesPedido).subscribe({
+        next: (response) => {
+          console.log(`Pedido atualizado com sucesso ! ${response}`);
+          this.pedidoCriado.emit();
+          this.resetForm();
+        },
+        error: (e) => {
+          console.error(`Erro ao atualizar Estoque ! Erro: ${e}`);
+        }
+      });
+    };
+
+    this.close.emit();
+    this.resetForm();
+  };
 
   criarPedido() {
-    this.pedidosService.postPedido(this.pedido).subscribe({
+    const novoPedido: Omit<Pedido, 'id' | 'created_at' | 'updated_at' | 'cliente_id'> = {
+      tipo_pedido: this.pedidoForm.value.tipo_pedido,
+      forma_pagamento: this.pedidoForm.value.forma_pagamento,
+      valor_total: this.pedidoForm.value.valor_total,
+      status: this.pedidoForm.value.status,
+      observacoes: this.pedidoForm.value.observacoes,
+    }
+
+    this.pedidoService.postPedido(novoPedido).subscribe({
       next: (response) => {
         console.log(`Pedido criado: ${response}`);
         this.pedidoCriado.emit();
@@ -70,46 +124,19 @@ export class ContainerFormModalPedidoComponent implements OnInit {
       },
       error(error) {
         console.error("Erro ao criar pedido", error);
-        alert('Erro ao criar o pedido');
       },
     });
-  }
+  };
 
-  atualizar() {
-    this.close.emit();
-    this.pedidoCriado.emit();
-    this.resetForm();
-  }
-
-  atualizarPedido(id: number, campo: string, valor: any) {
-    console.log("Entrou no Atualizar");
-
-    if (this.pedidosService.vericaAtualizacaoPedido) {
-      this.pedidosService.updatePedido(id, campo, valor).subscribe({
-        next: (response) => {
-          console.log(`${campo} atualizado com sucesso !`);
-        },
-        error: (err) => console.error(`Erro ao atualizar ${campo}:`, err)
-      });
-    } else {
-      console.error(`O id: ${id} não foi fornecido !`);
-    }
-  }
 
   resetForm() {
-    this.pedido = {
+    this.pedidoForm.reset({
       tipo_pedido: '',
       forma_pagamento: '',
       valor_total: null,
       status: '',
       observacoes: '',
-    };
-  }
-  // onNoClick(): void {
+    });
+  };
 
-  //   // postPedidos(event: any) {
-  //   //   console.log(event)
-  //   // }
-  //   this.dialogRef.closeAll();
-  // }
 }

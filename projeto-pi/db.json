@@ -20,6 +20,26 @@
       "cliente_id": 1,
       "created_at": "2025-05-06",
       "updated_at": "2025-05-06"
+    },
+    {
+      "tipo_pedido": "Bolo de aniversário",
+      "forma_pagamento": "Crédito",
+      "valor_total": 4.52312,
+      "status": "Pendente",
+      "observacoes": "Fazer até amanhã essa merda ",
+      "created_at": "14/05/2025, 02:27:37",
+      "updated_at": "14/05/2025, 02:40:39",
+      "id": 3
+    },
+    {
+      "tipo_pedido": "mandioca",
+      "forma_pagamento": "Pix",
+      "valor_total": 214,
+      "status": "realizado",
+      "observacoes": "não mandar sem recheio",
+      "created_at": "14/05/2025, 03:09:24",
+      "updated_at": "14/05/2025, 03:09:24",
+      "id": 4
     }
   ],
   "clientes": [],
@@ -47,14 +67,25 @@
       "id": 2
     },
     {
+      "nome_produto": "Leite",
+      "tipo_produto": "Ingrediente",
+      "quantidade": 23,
+      "custo_unitario": 42,
+      "unidade_medida": "ml",
+      "observacoes": "Comprei esse biscoito para fazer torta holandesa",
+      "created_at": "2025-05-14T05:33:41.458Z",
+      "updated_at": "2025-05-14T05:33:41.458Z",
+      "id": 3
+    },
+    {
       "nome_produto": "",
       "tipo_produto": "",
       "quantidade": 0,
       "custo_unitario": 0,
       "unidade_medida": "",
       "observacoes": "",
-      "created_at": "2025-05-14T03:41:50.160Z",
-      "updated_at": "2025-05-14T03:41:50.160Z",
+      "created_at": "2025-05-14T05:33:55.697Z",
+      "updated_at": "2025-05-14T05:33:55.697Z",
       "id": 4
     }
   ]

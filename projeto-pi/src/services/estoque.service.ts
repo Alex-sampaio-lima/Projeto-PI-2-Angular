@@ -15,7 +15,8 @@ export class EstoqueService {
   itensEmEstoque: Array<Estoque> = [];
   itensEmBaixoEstoque: Array<Estoque> = [];
   custoTotal: number = 0;
-  esteMes: Array<Estoque> = [];
+  // esteMes: Array<Estoque> = [];
+  esteMes: number = 0;
 
   verificarItensEstoque(data: Observable<Estoque[]>) {
     data.subscribe(dataEstoque => {
@@ -47,19 +48,16 @@ export class EstoqueService {
     let dataCriacao: Date;
 
     data.subscribe(dataEstoque => {
+      this.esteMes = 0;
       dataEstoque.forEach(item => {
         dataCriacao = new Date(item.created_at);
         if (dataCriacao.getMonth == hoje.getMonth) {
-
+          this.esteMes += 1;
         }
       })
     });
-
-    data.subscribe(dataEstoque => {
-      this.esteMes = dataEstoque.filter(item => hoje == dataCriacao);
-    });
-
   };
+
   getAllEstoque() {
     let data: Observable<Estoque[]>;
     data = this.httpClient.get<Estoque[]>(this.urlEstoque);
@@ -70,7 +68,7 @@ export class EstoqueService {
     return data;
   };
 
-  getEstoqueById(id: number) {
+  getEstoqueByID(id: number) {
     let data: Observable<Estoque[]>;
     data = this.httpClient.get<Estoque[]>(`${this.urlEstoque}/${id}`);
     return data;

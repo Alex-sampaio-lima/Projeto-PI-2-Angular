@@ -1,7 +1,7 @@
+import { Pedido } from './../interfaces/pedido';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Pedido } from '../interfaces/pedido';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Injectable({
@@ -36,6 +36,12 @@ export class PedidoService implements OnInit {
     return this.httpClient.get<Pedido[]>(this.urlPedido);
   };
 
+  getPedidoByID(id: number) {
+    let data: Observable<Pedido[]>;
+    data = this.httpClient.get<Pedido[]>(`${this.urlPedido}/${id}`);
+    return data;
+  }
+
   postPedido(pedido: Omit<Pedido, 'id' | 'created_at' | 'updated_at' | 'cliente_id'>): Observable<Pedido> {
     const pedidoCompleto = {
       ...pedido,
@@ -46,14 +52,17 @@ export class PedidoService implements OnInit {
     return this.httpClient.post<Pedido>(this.urlPedido, pedidoCompleto);
   };
 
-  updatePedido(id: number, campo: string, valor: number | string): Observable<Pedido> {
-    const updateData = {
-      ...this.pedidoForm,
-      updated_at: new Date().toLocaleString(),
-      [campo]: valor
-    };
-    return this.httpClient.patch<Pedido>(`${this.urlPedido}/${id}`, updateData);
+  updatePedido(id: number, pedido: Partial<Pedido>): Observable<Pedido> {
+    return this.httpClient.patch<Pedido>(`${this.urlPedido}/${id}`, pedido);
   };
+  // updatePedido(id: number, campo: string, valor: number | string): Observable<Pedido> {
+  //   const updateData = {
+  //     ...this.pedidoForm,
+  //     updated_at: new Date().toLocaleString(),
+  //     [campo]: valor
+  //   };
+  //   return this.httpClient.patch<Pedido>(`${this.urlPedido}/${id}`, updateData);
+  // };
 
   deletePedido(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${this.urlPedido}/${id}`);
