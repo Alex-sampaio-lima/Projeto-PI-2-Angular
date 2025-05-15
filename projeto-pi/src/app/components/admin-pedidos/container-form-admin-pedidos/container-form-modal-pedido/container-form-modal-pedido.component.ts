@@ -5,8 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { PedidoService } from '../../../../../services/pedido.service';
 import { Pedido } from '../../../../../interfaces/pedido';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ContainerFormPedidoDashBoardComponent } from '../container-form-pedido-dashboard/container-form-pedido-dashboard.component';
-
 
 @Component({
   selector: 'app-container-form-modal-pedido',
@@ -31,6 +29,13 @@ export class ContainerFormModalPedidoComponent implements OnInit {
   @Output() close = new EventEmitter<void>();
   @Output() pedidoCriado = new EventEmitter<void>();
 
+  @HostListener('document:keydown.escape', ['$event'])
+  onEscKey(event: KeyboardEvent) {
+    if (this.visible) {
+      this.onClose();
+    };
+  };
+
   ngOnInit(): void {
     this.listarPedidos();
 
@@ -41,13 +46,6 @@ export class ContainerFormModalPedidoComponent implements OnInit {
       status: [''],
       observacoes: [''],
     });
-  }
-
-  @HostListener('document:keydown.escape', ['$event'])
-  onEscKey(event: KeyboardEvent) {
-    if (this.visible) {
-      this.onClose();
-    };
   };
 
   onClose() {

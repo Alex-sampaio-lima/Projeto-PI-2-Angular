@@ -11,7 +11,6 @@ import {
 import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { Estoque, EstoqueUpdate } from '../../../../../interfaces/estoque';
 import { EstoqueService } from '../../../../../services/estoque.service';
-import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -47,7 +46,6 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarEstoque();
-    // this.listarEstoquePorID();
     this.estoqueForm = this.fb.group({
       nome_produto: [''],
       tipo_produto: [''],
@@ -90,7 +88,6 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
   }
 
   atualizar() {
-    // console.log("ID no atualizar", this.estoqueService.idEstoque);
     if (this.estoqueService.verificaAtualizacaoEstoque) {
       this.estoqueService.updateEstoque(this.estoqueService.idEstoque, this.alteracoesPendentes).subscribe({
         next: (response) => {
@@ -147,5 +144,4 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
     this.limparAlteracoesPendentes();
     this.dadosOriginais = null;
   };
-
 };

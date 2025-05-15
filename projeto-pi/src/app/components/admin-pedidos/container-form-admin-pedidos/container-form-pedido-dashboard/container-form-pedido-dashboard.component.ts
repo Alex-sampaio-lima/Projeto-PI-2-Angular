@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ContainerFormModalPedidoComponent } from '../container-form-modal-pedido/container-form-modal-pedido.component';
-import { Cliente } from '../../../../../interfaces/cliente';
+import { Cliente } from '../../../../../interfaces/user';
 
 @Component({
   selector: 'app-container-form-pedido-dashboard',

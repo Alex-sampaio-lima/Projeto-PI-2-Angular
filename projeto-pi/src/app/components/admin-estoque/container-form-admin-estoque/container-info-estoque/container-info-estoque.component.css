@@ -19,7 +19,7 @@
   width: 980px;
   width: 100%;
   padding: 10px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
   align-self: stretch;

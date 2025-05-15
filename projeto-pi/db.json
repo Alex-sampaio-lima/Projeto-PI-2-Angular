@@ -32,17 +32,100 @@
       "id": 3
     },
     {
-      "tipo_pedido": "mandioca",
+      "tipo_pedido": "Bolo de aniversario",
       "forma_pagamento": "Pix",
-      "valor_total": 214,
-      "status": "realizado",
-      "observacoes": "não mandar sem recheio",
-      "created_at": "14/05/2025, 03:09:24",
-      "updated_at": "14/05/2025, 03:09:24",
+      "valor_total": 421,
+      "status": "Pendente",
+      "observacoes": "Para crianças de até 10 anos",
+      "created_at": "14/05/2025, 17:42:05",
+      "updated_at": "14/05/2025, 17:42:05",
       "id": 4
+    },
+    {
+      "tipo_pedido": "",
+      "forma_pagamento": "",
+      "valor_total": "",
+      "status": "",
+      "observacoes": "",
+      "created_at": "15/05/2025, 00:13:19",
+      "updated_at": "15/05/2025, 00:13:19",
+      "id": 5
+    },
+    {
+      "tipo_pedido": "",
+      "forma_pagamento": "",
+      "valor_total": null,
+      "status": "",
+      "observacoes": "",
+      "created_at": "15/05/2025, 00:13:23",
+      "updated_at": "15/05/2025, 00:13:23",
+      "id": 6
+    },
+    {
+      "tipo_pedido": "",
+      "forma_pagamento": "",
+      "valor_total": null,
+      "status": "",
+      "observacoes": "",
+      "created_at": "15/05/2025, 00:13:24",
+      "updated_at": "15/05/2025, 00:13:24",
+      "id": 7
+    },
+    {
+      "tipo_pedido": "",
+      "forma_pagamento": "",
+      "valor_total": null,
+      "status": "",
+      "observacoes": "",
+      "created_at": "15/05/2025, 00:13:26",
+      "updated_at": "15/05/2025, 00:13:26",
+      "id": 8
+    },
+    {
+      "tipo_pedido": "",
+      "forma_pagamento": "",
+      "valor_total": null,
+      "status": "",
+      "observacoes": "",
+      "created_at": "15/05/2025, 00:13:28",
+      "updated_at": "15/05/2025, 00:13:28",
+      "id": 9
+    },
+    {
+      "tipo_pedido": "",
+      "forma_pagamento": "",
+      "valor_total": null,
+      "status": "",
+      "observacoes": "",
+      "created_at": "15/05/2025, 00:13:29",
+      "updated_at": "15/05/2025, 00:13:29",
+      "id": 10
     }
   ],
-  "clientes": [],
+  "user": [
+    {
+      "id": 1,
+      "nome": "Alex",
+      "password": 1234,
+      "email": "alexsandersampaiolima12@gmail.com",
+      "telefone": "11912263106",
+      "cpf": "53341496647",
+      "isAdmin": true,
+      "created_at": "",
+      "updated_at": ""
+    },
+    {
+      "id": 2,
+      "nome": "Marcelo",
+      "password": 1234,
+      "email": "marcelo@gmail.com",
+      "telefone": "11912263106",
+      "cpf": "53342491244",
+      "isAdmin": false,
+      "created_at": "",
+      "updated_at": ""
+    }
+  ],
   "estoque": [
     {
       "nome_produto": "Creme de Leite",
@@ -78,15 +161,125 @@
       "id": 3
     },
     {
+      "nome_produto": "Massa de Bolo",
+      "tipo_produto": "Ingrediente",
+      "quantidade": 21,
+      "custo_unitario": 42,
+      "unidade_medida": "",
+      "observacoes": "Fazer até amanhã essa merda ",
+      "created_at": "2025-05-14T20:13:59.156Z",
+      "updated_at": "2025-05-14T20:13:59.156Z",
+      "id": 4
+    },
+    {
       "nome_produto": "",
       "tipo_produto": "",
       "quantidade": 0,
       "custo_unitario": 0,
       "unidade_medida": "",
       "observacoes": "",
-      "created_at": "2025-05-14T05:33:55.697Z",
-      "updated_at": "2025-05-14T05:33:55.697Z",
-      "id": 4
+      "created_at": "2025-05-14T20:39:13.086Z",
+      "updated_at": "2025-05-14T20:39:13.086Z",
+      "id": 30
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-14T20:39:13.588Z",
+      "updated_at": "2025-05-14T20:39:13.588Z",
+      "id": 31
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-14T20:39:13.780Z",
+      "updated_at": "2025-05-14T20:39:13.780Z",
+      "id": 32
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-14T20:39:13.989Z",
+      "updated_at": "2025-05-14T20:39:13.989Z",
+      "id": 33
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-14T20:39:14.357Z",
+      "updated_at": "2025-05-14T20:39:14.357Z",
+      "id": 34
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-14T20:39:14.534Z",
+      "updated_at": "2025-05-14T20:39:14.534Z",
+      "id": 35
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-14T20:39:14.789Z",
+      "updated_at": "2025-05-14T20:39:14.789Z",
+      "id": 36
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-14T20:39:14.962Z",
+      "updated_at": "2025-05-14T20:39:14.962Z",
+      "id": 37
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-14T20:39:15.147Z",
+      "updated_at": "2025-05-14T20:39:15.147Z",
+      "id": 38
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-14T20:39:15.522Z",
+      "updated_at": "2025-05-14T20:39:15.522Z",
+      "id": 39
     }
   ]
 }

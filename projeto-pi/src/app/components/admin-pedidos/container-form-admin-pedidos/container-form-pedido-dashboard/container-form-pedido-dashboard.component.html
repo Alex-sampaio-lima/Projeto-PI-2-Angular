@@ -1,62 +1,61 @@
 <!-- Seção DashBoard -->
 <app-container-form-modal-pedido [visible]="modalVisible" (close)="modalVisible = false"
-    (pedidoCriado)="listarPedidos()"></app-container-form-modal-pedido>
+  (pedidoCriado)="listarPedidos()"></app-container-form-modal-pedido>
 <div class="container-dashBoard-admin-pedido">
-    <div class="container-header-dashboard">
-        <button class="btn-add-pedido-modal" type="button" (click)="openModal()">Adicionar Pedido</button>
-        <div class="container-icon-btn-pesquisa">
-            <span class="container-input-icon">
-                <i class="material-icons" id="icon-pesquisa">search</i>
-            </span>
-            <input type="search" name="pesquisa-pedido" id="pesquisa-pedido" placeholder="Pesquisa">
-        </div>
+  <div class="container-header-dashboard">
+    <button class="btn-add-pedido-modal" type="button" (click)="openModal()">Adicionar Pedido</button>
+    <div class="container-icon-btn-pesquisa">
+      <span class="container-input-icon">
+        <i class="material-icons" id="icon-pesquisa">search</i>
+      </span>
+      <input type="search" name="pesquisa-pedido" id="pesquisa-pedido" placeholder="Pesquisa">
     </div>
+  </div>
 
-    <table class="container-table-pedido">
-        <thead>
-            <tr class="container-title-check">
-                <th>
-                    <input type="checkbox" name="" id="">
-                </th>
-                <th class="title-info-pedido">Clientes</th>
-                <th class="title-info-pedido">Nome do Cliente</th>
-                <th class="title-info-pedido">Pedido</th>
-                <th class="title-info-pedido">Data</th>
-                <th class="title-info-pedido">Status</th>
-                <th class="title-info-pedido">Editar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- <ng-container *ngFor="let item of pedidos"> -->
-
-            @for (item of pedidos; track item.id) {
-            <tr class="container-info-edit-delete">
-                <!-- <tr class="container-info-edit-delete" *ngFor="let item of pedidos"> -->
-                <td>
-                    <input type="checkbox" name="checkbox-pedidos" id="checkbox-pedidos">
-                </td>
-                <td class="container-user">
-                    <img src="assets/imagemDoUsuario.svg" alt="avatar do usuário">
-                    <div>
-                        <p>Alex</p>
-                        <p class="email">alexsandersampaiolima12&#64;gmail</p>
-                    </div>
-                </td>
-                <td>{{item.id}}</td>
-                <td>{{item.tipo_pedido}}</td>
-                <td>{{item.created_at}}</td>
-                <td>{{item.status}}</td>
-                <td class="container-edit-delete-btn">
-                    <button class="icon-button"><i class="material-icons"
-                            (click)="excluirPedido(item.id)">delete_outline</i></button>
-                    <button class="icon-button"><i class="material-icons"
-                            (click)="verificarAtualizacaoPedidoForm(item.id)">edit</i></button>
-                </td>
-            </tr>
-            }
-            <!-- </ng-container> -->
-        </tbody>
-    </table>
+  <table class="container-table-pedido">
+    <thead>
+      <tr class="container-title-check">
+        <th>
+          <input type="checkbox" name="" id="">
+        </th>
+        <th class="title-info-pedido">Clientes</th>
+        <th class="title-info-pedido">Nome do Cliente</th>
+        <th class="title-info-pedido">Pedido</th>
+        <th class="title-info-pedido">Data</th>
+        <th class="title-info-pedido">Status</th>
+        <th class="title-info-pedido">Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <ng-container *ngFor="let item of pedidos"> -->
+      @for (item of pedidos; track item.id) {
+      <tr class="container-info-edit-delete">
+        <!-- <tr class="container-info-edit-delete" *ngFor="let item of pedidos"> -->
+        <td>
+          <input type="checkbox" name="checkbox-pedidos" id="checkbox-pedidos">
+        </td>
+        <td class="container-user">
+          <img src="assets/imagemDoUsuario.svg" alt="avatar do usuário">
+          <div>
+            <p>Alex</p>
+            <p class="email">alexsandersampaiolima12&#64;gmail</p>
+          </div>
+        </td>
+        <td class="container-dashboard-info">{{item.id}}</td>
+        <td class="container-dashboard-info">{{item.tipo_pedido}}</td>
+        <td class="container-dashboard-info">{{item.created_at}}</td>
+        <td class="container-dashboard-info">{{item.status}}</td>
+        <td class="container-edit-delete-btn">
+          <button class="icon-button"><i class="material-icons"
+              (click)="excluirPedido(item.id)">delete_outline</i></button>
+          <button class="icon-button"><i class="material-icons"
+              (click)="verificarAtualizacaoPedidoForm(item.id)">edit</i></button>
+        </td>
+      </tr>
+      }
+      <!-- </ng-container> -->
+    </tbody>
+  </table>
 </div>
 
 

@@ -11,33 +11,33 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminGuardService } from '../services/admin-guard.service';
 
 export const routes: Routes = [
-    { path: "home", component: HomeComponent },
-    { path: "card", component: CardSaboresComponent },
-    { path: "login", component: LoginComponent },
-    { path: "register", component: RegisterComponent },
-    { path: "adminPedidos", component: AdminPedidosComponent },
-    { path: "adminEstoque", component: AdminEstoqueComponent },
-    { path: "**", component: PaginaNaoEncontradaComponent },
-    { path: "", redirectTo: "/home", pathMatch: "full" }
+  { path: "home", component: HomeComponent },
+  { path: "card", component: CardSaboresComponent },
+  { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent },
+  { path: "adminPedidos", component: AdminPedidosComponent, canActivate: [AdminGuardService] },
+  { path: "adminEstoque", component: AdminEstoqueComponent, canActivate: [AdminGuardService] },
+  { path: "**", component: PaginaNaoEncontradaComponent },
+  { path: "", redirectTo: "/home", pathMatch: "full" }
 ];
 
 
 const routerOptions: ExtraOptions = {
-    anchorScrolling: 'enabled',
-    scrollPositionRestoration: 'enabled'
+  anchorScrolling: 'enabled',
+  scrollPositionRestoration: 'enabled'
 };
 
 @NgModule({
-    imports: [
-        RouterModule.forRoot(routes, routerOptions),
-        MatDialogModule,
-        FormsModule,
-        BrowserModule,
-        HttpClientModule,
-        HttpClientModule
-    ],
-    exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, routerOptions),
+    MatDialogModule,
+    FormsModule,
+    BrowserModule,
+    HttpClientModule,
+  ],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
