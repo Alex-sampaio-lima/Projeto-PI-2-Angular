@@ -11,7 +11,7 @@ export interface User {
 export interface SafeUser {
   email: string;
   nome: string;
-  created_at: string;
+  isAdmin: boolean;
 }
 
 export interface Cliente extends User {

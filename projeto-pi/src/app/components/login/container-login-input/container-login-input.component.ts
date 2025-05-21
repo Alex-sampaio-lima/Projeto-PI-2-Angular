@@ -21,7 +21,10 @@ export class ContainerLoginInputComponent {
   onSubmit() {
     this.userService.login(this.email, this.password).subscribe(
       response => {
-        if (response && response.length > 0 && this.email !== '', this.password !== '' && this.email == this.userService.currentUser.email && this.password == this.userService.currentUser.password) {
+        if (response && response.length > 0 && this.email !== '',
+          this.password !== ''
+          && this.email == this.userService.currentUser.email
+          && this.password == this.userService.currentUser.password) {
           this.router.navigate(['home']);
           console.log('Login realizado com sucesso !');
           if (this.userService.currentUser.isAdmin) {

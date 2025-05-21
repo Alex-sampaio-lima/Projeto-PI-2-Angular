@@ -1,26 +1,66 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { SafeUser, User } from '../interfaces/user';
 
+
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService implements OnInit {
 
   private userUrl = 'http://localhost:3000/user';
   private isAuthenticated = false;
-  userLocalStorage: string | null = '';
+  userLocalStorage: string | null | void = '';
 
-  public currentUser: Omit<User, 'id' | 'created_at' | 'updated_at'> = {
+  currentUser: Omit<User, 'id' | 'created_at' | 'updated_at'> = {
     nome: '',
     email: '',
     password: '',
     isAdmin: false,
   };
 
+  verifyCurrentUser: Omit<User, 'id' | 'password' | 'created_at' | 'updated_at'> = {
+    nome: '',
+    email: '',
+    isAdmin: false,
+  }
+
   constructor(private http: HttpClient, private router: Router) { }
+
+  ngOnInit(): void {
+    this.isLoggedInAdmin();
+  }
+
+  setItemWithExpiry(key: string, value: SafeUser, ttl: number) {
+    const now = new Date();
+    const item = {
+      value: value,
+      expiry: now.getTime() + ttl,
+    };
+
+    localStorage.setItem(key, JSON.stringify(item));
+  };
+
+  getItemWithExpiry(key: string) {
+    const itemStr = localStorage.getItem(key);
+
+    if (!itemStr) {
+      return null;
+    };
+
+    const item = JSON.parse(itemStr);
+    const now = new Date();
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key);
+      this.router.navigate(['/home']);
+      alert('Tempo expirado !');
+    };
+
+    return item.value;
+  };
 
   login(email: string, password: string): Observable<any> {
     return this.http.get<User[]>(`${this.userUrl}?email=${email}&password=${password}`).pipe(
@@ -29,7 +69,8 @@ export class UserService {
           this.isAuthenticated = true;
           this.currentUser = users[0];
           const safeUser = this.sanitizeUser(users[0]);
-          localStorage.setItem('@currentUser', JSON.stringify(safeUser));
+          this.userLocalStorage = localStorage.setItem('@currentUser', JSON.stringify(safeUser));
+          this.setItemWithExpiry("@currentUser", safeUser, 5 * 60 * 1000);
         };
       }),
       catchError(error => {
@@ -48,9 +89,21 @@ export class UserService {
   };
 
   isLoggedInAdmin(): boolean {
-    let verifica = false;
     this.userLocalStorage = localStorage.getItem('@currentUser');
-    if (this.isAuthenticated == true && this.currentUser.isAdmin == true && this.userLocalStorage != null) {
+    const storedUser = this.getItemWithExpiry('@currentUser');
+    let verifica = false;
+    if (this.userLocalStorage != null) {
+      this.isAuthenticated = true;
+      this.verifyCurrentUser = {
+        nome: storedUser.nome,
+        email: storedUser.email,
+        isAdmin: storedUser.isAdmin
+      };
+
+      console.log("Autenticado", this.isAuthenticated);
+      console.log("Usuário atual", this.verifyCurrentUser);
+      console.log("local storage", this.userLocalStorage);
+
       verifica = true;
     }
     return verifica;
@@ -72,7 +125,7 @@ export class UserService {
     return {
       nome: user.nome,
       email: user.email,
-      created_at: user.created_at
+      isAdmin: user.isAdmin,
     }
   }
 };
