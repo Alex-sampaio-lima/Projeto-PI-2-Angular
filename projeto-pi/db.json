@@ -152,7 +152,7 @@
     {
       "nome_produto": "Leite",
       "tipo_produto": "Ingrediente",
-      "quantidade": 23,
+      "quantidade": 5,
       "custo_unitario": 42,
       "unidade_medida": "ml",
       "observacoes": "Comprei esse biscoito para fazer torta holandesa",
@@ -170,116 +170,6 @@
       "created_at": "2025-05-14T20:13:59.156Z",
       "updated_at": "2025-05-14T20:13:59.156Z",
       "id": 4
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-14T20:39:13.086Z",
-      "updated_at": "2025-05-14T20:39:13.086Z",
-      "id": 30
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-14T20:39:13.588Z",
-      "updated_at": "2025-05-14T20:39:13.588Z",
-      "id": 31
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-14T20:39:13.780Z",
-      "updated_at": "2025-05-14T20:39:13.780Z",
-      "id": 32
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-14T20:39:13.989Z",
-      "updated_at": "2025-05-14T20:39:13.989Z",
-      "id": 33
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-14T20:39:14.357Z",
-      "updated_at": "2025-05-14T20:39:14.357Z",
-      "id": 34
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-14T20:39:14.534Z",
-      "updated_at": "2025-05-14T20:39:14.534Z",
-      "id": 35
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-14T20:39:14.789Z",
-      "updated_at": "2025-05-14T20:39:14.789Z",
-      "id": 36
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-14T20:39:14.962Z",
-      "updated_at": "2025-05-14T20:39:14.962Z",
-      "id": 37
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-14T20:39:15.147Z",
-      "updated_at": "2025-05-14T20:39:15.147Z",
-      "id": 38
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-14T20:39:15.522Z",
-      "updated_at": "2025-05-14T20:39:15.522Z",
-      "id": 39
     }
   ]
 }
