@@ -12,11 +12,9 @@ export interface SafeUser {
   email: string;
   nome: string;
   isAdmin: boolean;
-}
+};
 
 export interface Cliente extends User {
   telefone: string;
   cpf: string;
 };
-
-

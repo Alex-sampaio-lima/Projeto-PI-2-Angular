@@ -26,12 +26,25 @@ export class UserService implements OnInit {
     email: '',
     isAdmin: false,
   }
+  urlUser = ' http://localhost:3000/user';
 
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.isLoggedInAdmin();
   }
+
+  postUser(user: Omit<User, 'id' | 'isAdmin' | 'created_at' | 'updated_at'>) {
+    const userCompleto = {
+      ...user,
+      created_at: new Date().toLocaleString(),
+      updated_at: new Date().toLocaleString(),
+      isAdmin: false
+    };
+    console.log(`USER COMPLETO: ${userCompleto}`);
+
+    return this.http.post<User>(this.urlUser, userCompleto);
+  };
 
   setItemWithExpiry(key: string, value: SafeUser, ttl: number) {
     const now = new Date();
@@ -92,7 +105,9 @@ export class UserService implements OnInit {
     this.userLocalStorage = localStorage.getItem('@currentUser');
     const storedUser = this.getItemWithExpiry('@currentUser');
     let verifica = false;
+
     if (this.userLocalStorage != null) {
+      console.log(this.verifyCurrentUser.isAdmin);
       this.isAuthenticated = true;
       this.verifyCurrentUser = {
         nome: storedUser.nome,
@@ -100,11 +115,12 @@ export class UserService implements OnInit {
         isAdmin: storedUser.isAdmin
       };
 
+      this.verifyCurrentUser.isAdmin == true ? verifica = true : verifica = false;
+
       console.log("Autenticado", this.isAuthenticated);
       console.log("Usuário atual", this.verifyCurrentUser);
       console.log("local storage", this.userLocalStorage);
 
-      verifica = true;
     }
     return verifica;
   };

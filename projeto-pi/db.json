@@ -40,66 +40,6 @@
       "created_at": "14/05/2025, 17:42:05",
       "updated_at": "14/05/2025, 17:42:05",
       "id": 4
-    },
-    {
-      "tipo_pedido": "",
-      "forma_pagamento": "",
-      "valor_total": "",
-      "status": "",
-      "observacoes": "",
-      "created_at": "15/05/2025, 00:13:19",
-      "updated_at": "15/05/2025, 00:13:19",
-      "id": 5
-    },
-    {
-      "tipo_pedido": "",
-      "forma_pagamento": "",
-      "valor_total": null,
-      "status": "",
-      "observacoes": "",
-      "created_at": "15/05/2025, 00:13:23",
-      "updated_at": "15/05/2025, 00:13:23",
-      "id": 6
-    },
-    {
-      "tipo_pedido": "",
-      "forma_pagamento": "",
-      "valor_total": null,
-      "status": "",
-      "observacoes": "",
-      "created_at": "15/05/2025, 00:13:24",
-      "updated_at": "15/05/2025, 00:13:24",
-      "id": 7
-    },
-    {
-      "tipo_pedido": "",
-      "forma_pagamento": "",
-      "valor_total": null,
-      "status": "",
-      "observacoes": "",
-      "created_at": "15/05/2025, 00:13:26",
-      "updated_at": "15/05/2025, 00:13:26",
-      "id": 8
-    },
-    {
-      "tipo_pedido": "",
-      "forma_pagamento": "",
-      "valor_total": null,
-      "status": "",
-      "observacoes": "",
-      "created_at": "15/05/2025, 00:13:28",
-      "updated_at": "15/05/2025, 00:13:28",
-      "id": 9
-    },
-    {
-      "tipo_pedido": "",
-      "forma_pagamento": "",
-      "valor_total": null,
-      "status": "",
-      "observacoes": "",
-      "created_at": "15/05/2025, 00:13:29",
-      "updated_at": "15/05/2025, 00:13:29",
-      "id": 10
     }
   ],
   "user": [
@@ -124,6 +64,17 @@
       "isAdmin": false,
       "created_at": "",
       "updated_at": ""
+    },
+    {
+      "nome": "Julia",
+      "email": "julia@gmail.com",
+      "password": "1234",
+      "telefone": "11940264106",
+      "cpf": "534.419.598-25",
+      "isAdmin": false,
+      "created_at": "21/05/2025, 16:09:14",
+      "updated_at": "21/05/2025, 16:09:14",
+      "id": 3
     }
   ],
   "estoque": [

@@ -47,6 +47,7 @@
       [routerLink]="this.userService.isLoggedInAdmin() ? '/adminPedidos' : '/login'">
       {{this.userService.isLoggedInAdmin() ? 'Admin' : 'Login'}}
     </button>
+    <!-- @if(this.userService.is) -->
 
   </div>
 </header>
