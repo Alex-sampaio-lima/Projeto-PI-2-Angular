@@ -11,6 +11,7 @@
       </div>
 
       <form [formGroup]="pedidoForm" class="container-inputs" action="" method="post">
+
         <div class="container-form-nome-default">
           <div class="container-default">
             <label for="nome">Nome</label>
@@ -35,11 +36,12 @@
               placeholder="Ex: Digite o CPF do cliente" mask="000.000.000-00">
           </div>
         </div>
-        
+
         <div class="container-title-cliente">
           <h1 class="title-cliente">Dados do Pedido</h1>
         </div>
-        <div class="container-form-nome-default">
+
+        <div formGroupName="pedido" class="container-form-nome-default">
           <div class="container-default">
             <label for="tipo">Tipo</label>
             <input formControlName="tipo_pedido" (change)="campoAlterado('tipo_pedido', pedidoForm.value.tipo_pedido)"
@@ -53,20 +55,19 @@
               class="container-input-default" type="text" name="forma_pagamento" id="formaDePagamento"
               placeholder="Ex: Débito">
           </div>
-        </div>
-        <div class="container-form-nome-default">
+
           <div class="container-default">
             <label for="valorTotal">Valor Total</label>
             <input formControlName="valor_total" (change)="campoAlterado('valor_total', pedidoForm.value.valor_total)"
               class="container-input-default" type="number" name="valor_total" id="valorTotal" placeholder="Ex: 320 R$">
+
+            <div class="container-default">
+              <label for="status">Status</label>
+              <input formControlName="status" (change)="campoAlterado('status', pedidoForm.value.status)"
+                class="container-input-default" type="text" name="status" id="status" placeholder="Ex: pendente">
+            </div>
           </div>
-          <div class="container-default">
-            <label for="status">Status</label>
-            <input formControlName="status" (change)="campoAlterado('status', pedidoForm.value.status)"
-              class="container-input-default" type="text" name="status" id="status" placeholder="Ex: pendente">
-          </div>
-        </div>
-        <div class="container-form-nome-default">
+
           <div class="container-default">
             <label for="observacoes">Observações</label>
             <input formControlName="observacoes" (change)="campoAlterado('observacoes', pedidoForm.value.observacoes)"
@@ -74,6 +75,8 @@
               placeholder="Ex: Recheio de leite condensado">
           </div>
         </div>
+
+
         <div class="container-btn-submit-form">
           <button class="btn-submit-form" type="submit"
             (click)="this.pedidoService.vericaAtualizacaoPedido ? atualizar(): criarPedido()">{{this.pedidoService.vericaAtualizacaoPedido

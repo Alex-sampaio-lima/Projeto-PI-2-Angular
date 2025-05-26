@@ -4,7 +4,7 @@ import { Component, EventEmitter, HostListener, inject, Input, OnInit, Output } 
 import { MatDialog } from '@angular/material/dialog';
 import { PedidoService } from '../../../../../services/pedido.service';
 import { Pedido } from '../../../../../interfaces/pedido';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-container-form-modal-pedido',
@@ -39,13 +39,30 @@ export class ContainerFormModalPedidoComponent implements OnInit {
   ngOnInit(): void {
     this.listarPedidos();
 
+    // this.pedidoForm = this.fb.group({
+    //   tipo_pedido: [''],
+    //   forma_pagamento: [''],
+    //   valor_total: [''],
+    //   status: [''],
+    //   observacoes: [''],
+    // });
+
     this.pedidoForm = this.fb.group({
-      tipo_pedido: [''],
-      forma_pagamento: [''],
-      valor_total: [''],
-      status: [''],
-      observacoes: [''],
+      cliente: this.fb.group({
+        nome: ['', Validators.required],
+        telefone: [''],
+        email: ['', Validators.email],
+        cpf: ['']
+      }),
+      pedido: this.fb.group({
+        tipo_pedido: ['', Validators.required],
+        forma_pagamento: ['', Validators.required],
+        valor_total: ['', [Validators.required, Validators.min(0)]],
+        status: ['pendente', Validators.required],
+        observacoes: ['']
+      })
     });
+
   };
 
   onClose() {
