@@ -35,6 +35,7 @@
               placeholder="Ex: Digite o CPF do cliente" mask="000.000.000-00">
           </div>
         </div>
+        
         <div class="container-title-cliente">
           <h1 class="title-cliente">Dados do Pedido</h1>
         </div>
@@ -62,8 +63,7 @@
           <div class="container-default">
             <label for="status">Status</label>
             <input formControlName="status" (change)="campoAlterado('status', pedidoForm.value.status)"
-              class="container-input-default" type="text" name="status" id="formaDePagamento"
-              placeholder="Ex: pendente">
+              class="container-input-default" type="text" name="status" id="status" placeholder="Ex: pendente">
           </div>
         </div>
         <div class="container-form-nome-default">

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
-import { SafeUser, User } from '../interfaces/user';
+import { Cliente, SafeUser, User } from '../interfaces/user';
 
 
 @Injectable({
@@ -13,6 +13,7 @@ export class UserService implements OnInit {
   private userUrl = 'http://localhost:3000/user';
   private isAuthenticated = false;
   userLocalStorage: string | null | void = '';
+  users: User[] = [];
 
   currentUser: Omit<User, 'id' | 'created_at' | 'updated_at'> = {
     nome: '',
@@ -33,6 +34,10 @@ export class UserService implements OnInit {
   ngOnInit(): void {
     this.isLoggedInAdmin();
   }
+
+  getAllClientes() {
+    return this.http.get<Cliente[]>(this.urlUser);
+  };
 
   postUser(user: Omit<User, 'id' | 'isAdmin' | 'created_at' | 'updated_at'>) {
     const userCompleto = {

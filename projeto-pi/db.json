@@ -40,6 +40,16 @@
       "created_at": "14/05/2025, 17:42:05",
       "updated_at": "14/05/2025, 17:42:05",
       "id": 4
+    },
+    {
+      "tipo_pedido": "",
+      "forma_pagamento": "",
+      "valor_total": "",
+      "status": "",
+      "observacoes": "",
+      "created_at": "26/05/2025, 00:13:11",
+      "updated_at": "26/05/2025, 00:13:11",
+      "id": 5
     }
   ],
   "user": [
@@ -49,7 +59,7 @@
       "password": 1234,
       "email": "alexsandersampaiolima12@gmail.com",
       "telefone": "11912263106",
-      "cpf": "53341496647",
+      "cpf": "534.419.968-60",
       "isAdmin": true,
       "created_at": "",
       "updated_at": ""
@@ -60,7 +70,7 @@
       "password": 1234,
       "email": "marcelo@gmail.com",
       "telefone": "11912263106",
-      "cpf": "53342491244",
+      "cpf": "533.424.912-44",
       "isAdmin": false,
       "created_at": "",
       "updated_at": ""
