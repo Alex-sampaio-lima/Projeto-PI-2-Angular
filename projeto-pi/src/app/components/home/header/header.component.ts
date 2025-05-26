@@ -43,5 +43,9 @@ export class HeaderComponent {
 
   };
 
+  deslogarUsuario() {
+    this.userService.logOut();
+  };
+
 };
 

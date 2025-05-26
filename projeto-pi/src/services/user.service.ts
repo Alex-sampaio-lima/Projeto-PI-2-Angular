@@ -134,7 +134,7 @@ export class UserService implements OnInit {
       isAdmin: false,
     };
     localStorage.removeItem('@currentUser');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   };
 
   sanitizeUser(user: User): SafeUser {

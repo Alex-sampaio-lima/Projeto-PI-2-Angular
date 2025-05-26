@@ -129,28 +129,6 @@
       "custo_unitario": 0,
       "unidade_medida": "",
       "observacoes": "",
-      "created_at": "2025-05-21T04:28:01.586Z",
-      "updated_at": "2025-05-21T04:28:01.586Z",
-      "id": 8
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-21T04:28:02.118Z",
-      "updated_at": "2025-05-21T04:28:02.118Z",
-      "id": 9
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
       "created_at": "2025-05-21T04:28:02.453Z",
       "updated_at": "2025-05-21T04:28:02.453Z",
       "id": 10
