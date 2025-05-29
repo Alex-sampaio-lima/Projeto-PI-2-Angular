@@ -88,7 +88,7 @@ export class UserService implements OnInit {
           this.currentUser = users[0];
           const safeUser = this.sanitizeUser(users[0]);
           this.userLocalStorage = localStorage.setItem('@currentUser', JSON.stringify(safeUser));
-          this.setItemWithExpiry("@currentUser", safeUser, 5 * 60 * 1000);
+          this.setItemWithExpiry("@currentUser", safeUser, 5 * 600 * 1000);
         };
       }),
       catchError(error => {

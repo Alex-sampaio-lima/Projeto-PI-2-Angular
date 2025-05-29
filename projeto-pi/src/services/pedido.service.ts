@@ -1,7 +1,7 @@
 import { Pedido } from './../interfaces/pedido';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, retry, tap } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Injectable({
@@ -14,6 +14,10 @@ export class PedidoService implements OnInit {
   pedidoForm: FormGroup | undefined;
   idPedido = 0;
   vericaAtualizacaoPedido = false;
+  vendidos: number = 0;
+  cancelados: number = 0;
+  ganhos: number = 0;
+  totalGanhos: number = 0;
 
   constructor(
     private httpClient: HttpClient,
@@ -32,8 +36,30 @@ export class PedidoService implements OnInit {
     });
   };
 
+  verificaVendido(data: Observable<Pedido[]>) {
+    data.subscribe(items => {
+      this.vendidos = 0;
+      this.ganhos = 0;
+      this.cancelados = 0;
+      items.forEach(item => {
+        if (item.status === 'Realizado') {
+          this.vendidos++;
+        } else if (item.status === 'Cancelado') {
+          this.cancelados++;
+        };
+
+        if (item.valor_total) {
+          this.ganhos += item.valor_total;
+          this.totalGanhos = this.ganhos * 0.30;
+        };
+      });
+    });
+  };
+
   getAllPedidos() {
-    return this.httpClient.get<Pedido[]>(this.urlPedido);
+    let data = this.httpClient.get<Pedido[]>(this.urlPedido);
+    this.verificaVendido(data);
+    return data;
   };
 
   getPedidoByID(id: number) {
