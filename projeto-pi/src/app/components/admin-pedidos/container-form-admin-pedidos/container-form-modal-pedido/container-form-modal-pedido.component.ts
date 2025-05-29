@@ -39,36 +39,25 @@ export class ContainerFormModalPedidoComponent implements OnInit {
   ngOnInit(): void {
     this.listarPedidos();
 
-    // this.pedidoForm = this.fb.group({
-    //   tipo_pedido: [''],
-    //   forma_pagamento: [''],
-    //   valor_total: [''],
-    //   status: [''],
-    //   observacoes: [''],
-    // });
-
     this.pedidoForm = this.fb.group({
-      cliente: this.fb.group({
-        nome: ['', Validators.required],
-        telefone: [''],
-        email: ['', Validators.email],
-        cpf: ['']
-      }),
-      pedido: this.fb.group({
-        tipo_pedido: ['', Validators.required],
-        forma_pagamento: ['', Validators.required],
-        valor_total: ['', [Validators.required, Validators.min(0)]],
-        status: ['pendente', Validators.required],
-        observacoes: ['']
-      })
+      nome: [''],
+      telefone: [''],
+      email: [''],
+      cpf: [''],
+      tipo_pedido: [''],
+      forma_pagamento: [''],
+      valor_total: [''],
+      status: [''],
+      observacoes: [''],
     });
-
+    console.log(this.pedidoForm.value.nome);
   };
 
   onClose() {
     this.close.emit();
     this.listarPedidos();
   };
+
 
   listarPedidos() {
     this.pedidoService.getAllPedidos().subscribe((data: Pedido[]) => {
@@ -121,6 +110,10 @@ export class ContainerFormModalPedidoComponent implements OnInit {
 
   criarPedido() {
     const novoPedido: Omit<Pedido, 'id' | 'created_at' | 'updated_at' | 'cliente_id'> = {
+      nome: this.pedidoForm.value.nome,
+      telefone: this.pedidoForm.value.telefone,
+      email: this.pedidoForm.value.email,
+      cpf: this.pedidoForm.value.cpf,
       tipo_pedido: this.pedidoForm.value.tipo_pedido,
       forma_pagamento: this.pedidoForm.value.forma_pagamento,
       valor_total: this.pedidoForm.value.valor_total,

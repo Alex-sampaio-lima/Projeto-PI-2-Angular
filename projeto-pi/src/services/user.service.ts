@@ -72,8 +72,8 @@ export class UserService implements OnInit {
     const now = new Date();
 
     if (now.getTime() > item.expiry) {
-      localStorage.removeItem(key);
-      this.router.navigate(['/home']);
+      this.isAuthenticated = false;
+      this.logOut();
       alert('Tempo expirado !');
     };
 
@@ -111,14 +111,15 @@ export class UserService implements OnInit {
     const storedUser = this.getItemWithExpiry('@currentUser');
     let verifica = false;
 
-    if (this.userLocalStorage != null) {
-      console.log(this.verifyCurrentUser.isAdmin);
-      this.isAuthenticated = true;
-      this.verifyCurrentUser = {
-        nome: storedUser.nome,
-        email: storedUser.email,
-        isAdmin: storedUser.isAdmin
-      };
+    if (this.userLocalStorage) {
+      if (storedUser) {
+        this.verifyCurrentUser = {
+          nome: storedUser.nome,
+          email: storedUser.email,
+          isAdmin: storedUser.isAdmin
+        };
+      }
+      console.log(`variavel do admin: ${this.verifyCurrentUser.isAdmin}`);
 
       this.verifyCurrentUser.isAdmin == true ? verifica = true : verifica = false;
 

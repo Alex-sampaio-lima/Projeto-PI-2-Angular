@@ -176,16 +176,28 @@
 /* Secão Dash Board Admin Pedidos */
 
 .container-dashBoard-admin-pedido {
+  /* display: flex;
+  width: 100%;
+  height: 1290px;
+  max-height: 100%;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  gap: 10px;
+  padding: 14px 16px;
+  overflow: auto; */
+  /* height: 402px; */
+  /* border: 2px solid black; */
   display: flex;
   width: 100%;
-  height: 402px;
+  height: 1000px;
+  max-height: 100%;
   flex-direction: column;
   align-items: center;
   align-self: stretch;
   gap: 10px;
   padding: 14px 16px;
   overflow: auto;
-  /* border: 2px solid black; */
 }
 
 .container-header-dashboard {
@@ -357,7 +369,7 @@ td {
 .container-user {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 10px;
 }
 

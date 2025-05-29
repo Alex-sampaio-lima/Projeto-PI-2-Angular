@@ -1,6 +1,10 @@
 {
   "pedidos": [
     {
+      "nome": "Alexsander",
+      "telefone": "11940264105'",
+      "email": "alexsandersampaiolima12@gmail.com",
+      "cpf": "534.419.968-60",
       "tipo_pedido": "Mandioca",
       "forma_pagamento": "Crédito",
       "valor_total": 32,
@@ -11,45 +15,60 @@
       "id": 1
     },
     {
-      "id": 2,
-      "tipo_pedido": "kit festa",
-      "forma_pagamento": "Cartão de crédito",
-      "valor_total": 199.99,
-      "status": "Realizado",
-      "observacoes": "Mais coxinhas que kibes",
-      "cliente_id": 1,
-      "created_at": "2025-05-06",
-      "updated_at": "2025-05-06"
-    },
-    {
-      "tipo_pedido": "Bolo de aniversário",
+      "nome": "Pedro",
+      "telefone": "11940264105'",
+      "email": "pedro@gmail.com",
+      "cpf": "534.419.598-25",
+      "created_at": "26/05/2025, 21:25:25",
+      "updated_at": "26/05/2025, 21:25:25",
       "forma_pagamento": "Crédito",
-      "valor_total": 4.52312,
-      "status": "Pendente",
-      "observacoes": "Fazer até amanhã essa merda ",
-      "created_at": "14/05/2025, 02:27:37",
-      "updated_at": "14/05/2025, 02:40:39",
-      "id": 3
+      "tipo_pedido": "Bolo de aniversario",
+      "valor_total": 421,
+      "observacoes": "Falta comprar mais 5 desses",
+      "status": "Realizado",
+      "id": 2
     },
     {
-      "tipo_pedido": "Bolo de aniversario",
+      "nome": "Marcos",
+      "telefone": "11940264105'",
+      "email": "marcos@gmail.com",
+      "cpf": "534.419.598-25",
+      "tipo_pedido": "Kit Festa",
       "forma_pagamento": "Pix",
-      "valor_total": 421,
-      "status": "Pendente",
-      "observacoes": "Para crianças de até 10 anos",
-      "created_at": "14/05/2025, 17:42:05",
-      "updated_at": "14/05/2025, 17:42:05",
+      "valor_total": 800,
+      "status": "Em andamento",
+      "observacoes": "Fazer com recheio de chocolate",
+      "created_at": "27/05/2025, 23:14:21",
+      "updated_at": "27/05/2025, 23:14:21",
       "id": 4
     },
     {
-      "tipo_pedido": "",
-      "forma_pagamento": "",
-      "valor_total": "",
-      "status": "",
-      "observacoes": "",
-      "created_at": "26/05/2025, 00:13:11",
-      "updated_at": "26/05/2025, 00:13:11",
+      "nome": "Ana Julia",
+      "telefone": "11940264105",
+      "email": "ana@gmail.com",
+      "cpf": "534.419.598-25",
+      "tipo_pedido": "Kit Festa",
+      "forma_pagamento": "Pix",
+      "valor_total": 700,
+      "status": "Realizado",
+      "observacoes": "Fazer até o meio dia de amanhã",
+      "created_at": "28/05/2025, 20:01:17",
+      "updated_at": "28/05/2025, 20:01:17",
       "id": 5
+    },
+    {
+      "nome": "",
+      "telefone": "",
+      "email": "",
+      "cpf": "",
+      "tipo_pedido": "",
+      "forma_pagamento": "credito",
+      "valor_total": "",
+      "status": "pix",
+      "observacoes": "",
+      "created_at": "28/05/2025, 20:58:16",
+      "updated_at": "28/05/2025, 20:58:16",
+      "id": 6
     }
   ],
   "user": [
@@ -133,15 +152,81 @@
       "id": 4
     },
     {
+      "nome_produto": "Creme de Leite",
+      "tipo_produto": "",
+      "quantidade": "",
+      "custo_unitario": "",
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-28T23:25:00.981Z",
+      "updated_at": "2025-05-28T23:25:00.981Z",
+      "id": 5
+    },
+    {
       "nome_produto": "",
       "tipo_produto": "",
       "quantidade": 0,
       "custo_unitario": 0,
       "unidade_medida": "",
       "observacoes": "",
-      "created_at": "2025-05-21T04:28:02.453Z",
-      "updated_at": "2025-05-21T04:28:02.453Z",
+      "created_at": "2025-05-28T23:25:03.451Z",
+      "updated_at": "2025-05-28T23:25:03.451Z",
+      "id": 6
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-28T23:25:04.008Z",
+      "updated_at": "2025-05-28T23:25:04.008Z",
+      "id": 7
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-28T23:25:04.837Z",
+      "updated_at": "2025-05-28T23:25:04.837Z",
+      "id": 8
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-28T23:26:32.106Z",
+      "updated_at": "2025-05-28T23:26:32.106Z",
+      "id": 9
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-28T23:26:32.273Z",
+      "updated_at": "2025-05-28T23:26:32.273Z",
       "id": 10
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": 0,
+      "custo_unitario": 0,
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-05-28T23:26:32.907Z",
+      "updated_at": "2025-05-28T23:26:32.907Z",
+      "id": 11
     }
   ]
 }
