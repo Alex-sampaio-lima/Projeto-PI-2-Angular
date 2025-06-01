@@ -63,7 +63,8 @@
 
           <div class="container-default">
             <label for="formaDePagamento">Forma de Pagamento</label>
-            <select formControlName="forma_pagamento" name="formaDePagamento" id="formaDePagamento">
+            <select formControlName="forma_pagamento" name="formaDePagamento" id="formaDePagamento"
+              class="container-input-default">
               <option value="">Selecione...</option>
               <option value="debito">Débito</option>
               <option value="pix">Pix</option>
@@ -87,7 +88,7 @@
           <div class="container-default">
             <label for="formaDePagamento">Status</label>
             <select formControlName="status" (change)="campoAlterado('status', pedidoForm.value.status)"
-              name="formaDePagamento" id="formaDePagamento">
+              name="formaDePagamento" id="formaDePagamento" class="container-input-default">
               <option value="">Selecione...</option>
               <option value="Realizado">Realizado</option>
               <option value="Em Andamento">Em Andamento</option>

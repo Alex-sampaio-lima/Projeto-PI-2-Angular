@@ -71,7 +71,7 @@
       "id": 6
     },
     {
-      "nome": "",
+      "nome": "Marcela",
       "telefone": "",
       "email": "",
       "cpf": "",
@@ -89,7 +89,7 @@
     {
       "id": 1,
       "nome": "Alex",
-      "password": 1234,
+      "password": "123456",
       "email": "alexsandersampaiolima12@gmail.com",
       "telefone": "11912263106",
       "cpf": "534.419.968-60",
@@ -100,7 +100,7 @@
     {
       "id": 2,
       "nome": "Marcelo",
-      "password": 1234,
+      "password": "123456",
       "email": "marcelo@gmail.com",
       "telefone": "11912263106",
       "cpf": "533.424.912-44",
@@ -111,7 +111,7 @@
     {
       "nome": "Julia",
       "email": "julia@gmail.com",
-      "password": "1234",
+      "password": "123456",
       "telefone": "11940264106",
       "cpf": "534.419.598-25",
       "isAdmin": false,
@@ -168,8 +168,8 @@
     {
       "nome_produto": "Creme de Leite",
       "tipo_produto": "",
-      "quantidade": "",
-      "custo_unitario": "",
+      "quantidade": 5,
+      "custo_unitario": 12,
       "unidade_medida": "",
       "observacoes": "",
       "created_at": "2025-05-28T23:25:00.981Z",
@@ -177,15 +177,15 @@
       "id": 5
     },
     {
-      "nome_produto": "",
+      "nome_produto": "Biscoito",
       "tipo_produto": "",
       "quantidade": 0,
       "custo_unitario": 0,
       "unidade_medida": "",
       "observacoes": "",
-      "created_at": "2025-05-28T23:25:03.451Z",
-      "updated_at": "2025-05-28T23:25:03.451Z",
-      "id": 6
+      "created_at": "2025-06-01T03:43:05.356Z",
+      "updated_at": "2025-06-01T03:43:05.356Z",
+      "id": 13
     },
     {
       "nome_produto": "",
@@ -194,9 +194,9 @@
       "custo_unitario": 0,
       "unidade_medida": "",
       "observacoes": "",
-      "created_at": "2025-05-28T23:25:04.008Z",
-      "updated_at": "2025-05-28T23:25:04.008Z",
-      "id": 7
+      "created_at": "2025-06-01T03:43:07.457Z",
+      "updated_at": "2025-06-01T03:43:07.457Z",
+      "id": 14
     },
     {
       "nome_produto": "",
@@ -205,9 +205,20 @@
       "custo_unitario": 0,
       "unidade_medida": "",
       "observacoes": "",
-      "created_at": "2025-05-28T23:25:04.837Z",
-      "updated_at": "2025-05-28T23:25:04.837Z",
-      "id": 8
+      "created_at": "2025-06-01T03:43:09.951Z",
+      "updated_at": "2025-06-01T03:43:09.951Z",
+      "id": 15
+    },
+    {
+      "nome_produto": "",
+      "tipo_produto": "",
+      "quantidade": "",
+      "custo_unitario": "",
+      "unidade_medida": "",
+      "observacoes": "",
+      "created_at": "2025-06-01T05:52:26.180Z",
+      "updated_at": "2025-06-01T05:52:26.180Z",
+      "id": 16
     },
     {
       "nome_produto": "",
@@ -216,31 +227,9 @@
       "custo_unitario": 0,
       "unidade_medida": "",
       "observacoes": "",
-      "created_at": "2025-05-28T23:26:32.106Z",
-      "updated_at": "2025-05-28T23:26:32.106Z",
-      "id": 9
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-28T23:26:32.273Z",
-      "updated_at": "2025-05-28T23:26:32.273Z",
-      "id": 10
-    },
-    {
-      "nome_produto": "",
-      "tipo_produto": "",
-      "quantidade": 0,
-      "custo_unitario": 0,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-28T23:26:32.907Z",
-      "updated_at": "2025-05-28T23:26:32.907Z",
-      "id": 11
+      "created_at": "2025-06-01T05:52:36.099Z",
+      "updated_at": "2025-06-01T05:52:36.099Z",
+      "id": 17
     }
   ]
 }

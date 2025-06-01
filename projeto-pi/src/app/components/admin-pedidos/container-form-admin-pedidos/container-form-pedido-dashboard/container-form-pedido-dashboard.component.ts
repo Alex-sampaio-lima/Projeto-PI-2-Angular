@@ -10,7 +10,11 @@ import { Cliente } from '../../../../../interfaces/user';
 
 @Component({
   selector: 'app-container-form-pedido-dashboard',
-  imports: [HttpClientModule, FormsModule, CommonModule, ContainerFormModalPedidoComponent],
+  imports: [
+    HttpClientModule,
+    FormsModule,
+    CommonModule,
+    ContainerFormModalPedidoComponent],
   templateUrl: './container-form-pedido-dashboard.component.html',
   styleUrl: './container-form-pedido-dashboard.component.css'
 })
@@ -24,6 +28,7 @@ export class ContainerFormPedidoDashBoardComponent implements OnInit {
   pedidos: Pedido[] = [];
   verificaAtualizaPedido = false;
   modalVisible = false;
+  termoPesquisa: string = '';
 
   ngOnInit(): void {
     this.listarPedidos();
@@ -35,12 +40,26 @@ export class ContainerFormPedidoDashBoardComponent implements OnInit {
     })
   }
 
+  get filtrarPedidos() {
+    const termo = this.termoPesquisa.toLowerCase();
+
+    if (termo !== '') {
+      return this.pedidos.filter(pedido => {
+       return pedido.nome.toLowerCase().includes(termo) ||
+          pedido.email.toLowerCase().includes(termo) ||
+          pedido.tipo_pedido.toLowerCase().includes(termo) ||
+          pedido.status.toLowerCase().includes(termo)
+      });
+    }
+    return this.pedidos;
+  };
+
   verificarAtualizacaoPedidoForm(id: number): boolean {
     this.pedidoService.idPedido = id;
     this.openModal();
     this.pedidoService.vericaAtualizacaoPedido = true;
     return this.pedidoService.vericaAtualizacaoPedido;
-  }
+  };
 
   excluirPedido(id: number): void {
     this.pedidoService.deletePedido(id).subscribe({

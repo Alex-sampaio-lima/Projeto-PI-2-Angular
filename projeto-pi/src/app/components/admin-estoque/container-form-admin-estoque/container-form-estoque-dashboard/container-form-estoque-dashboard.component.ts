@@ -2,10 +2,11 @@ import { Component, Inject, inject, OnInit } from '@angular/core';
 import { ContainerFormModalEstoqueComponent } from '../container-form-modal-estoque/container-form-modal-estoque.component';
 import { Estoque } from '../../../../../interfaces/estoque';
 import { EstoqueService } from '../../../../../services/estoque.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-container-form-estoque-dashboard',
-  imports: [ContainerFormModalEstoqueComponent],
+  imports: [ContainerFormModalEstoqueComponent, FormsModule],
   templateUrl: './container-form-estoque-dashboard.component.html',
   styleUrl: './container-form-estoque-dashboard.component.css'
 })
@@ -16,6 +17,7 @@ export class ContainerFormEstoqueDashboardComponent implements OnInit {
   estoqueData: Estoque[] = [];
   itensEmEstoque: number = 0;
   dataFormatada: string | undefined;
+  termoPesquisa: string = '';
 
   ngOnInit(): void {
     this.listarEstoque();
@@ -26,6 +28,18 @@ export class ContainerFormEstoqueDashboardComponent implements OnInit {
     this.estoqueService.verificaAtualizacaoEstoque = false;
   };
 
+  get filtraEstoque() {
+    const termo = this.termoPesquisa;
+    if (termo !== '') {
+      return this.estoqueData.filter(estoque => {
+        return estoque.nome_produto.toLowerCase().includes(termo) ||
+          estoque.tipo_produto.toLowerCase().includes(termo) ||
+          estoque.quantidade?.toString().includes(termo) ||
+          estoque.custo_unitario?.toString().includes(termo)
+      });
+    }
+    return this.estoqueData;
+  };
 
   listarEstoque(): void {
     this.estoqueService.getAllEstoque().subscribe((data: Estoque[]) => {
@@ -34,7 +48,6 @@ export class ContainerFormEstoqueDashboardComponent implements OnInit {
         const dataObj = new Date(item.created_at);
         this.dataFormatada = dataObj.toLocaleString('pt-BR');
       })
-      // console.log("DATA: ", data);
     });
   };
 

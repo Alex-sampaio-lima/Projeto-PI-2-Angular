@@ -11,7 +11,8 @@
       <span class="container-input-icon">
         <i class="material-icons" id="icon-pesquisa">search</i>
       </span>
-      <input type="search" name="pesquisa-pedido" id="pesquisa-pedido" placeholder="Pesquisa">
+      <input type="search" name="pesquisa-pedido" id="pesquisa-pedido" placeholder="Pesquisa"
+        [(ngModel)]="termoPesquisa" (change)="filtraEstoque">
     </div>
   </div>
 
@@ -33,7 +34,7 @@
     <tbody>
       <!-- <ng-container *ngFor="let item of pedidos"> -->
 
-      @for (item of estoqueData; track item.id) {
+      @for (item of filtraEstoque; track item.id) {
       <tr class="container-info-edit-delete">
         <!-- <tr class="container-info-edit-delete" *ngFor="let item of pedidos"> -->
         <td>

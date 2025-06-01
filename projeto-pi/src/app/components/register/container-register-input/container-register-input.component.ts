@@ -30,7 +30,7 @@ export class ContainerRegisterInputComponent implements OnInit {
 
   listarUsers() {
     
-  }
+  };
 
   criarUser() {
     const novoUser: Omit<Cliente, 'id' | 'created_at' | 'updated_at'> = {

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../../services/user.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,31 +11,44 @@ import { CommonModule } from '@angular/common';
   styleUrl: './container-login-input.component.css'
 })
 export class ContainerLoginInputComponent {
-  email: string = '';
-  password: string = '';
+  // email: string = '';
+  // password: string = '';
   errorMessage: string = '';
+  loginForm!: FormGroup;
   private userService = inject(UserService);
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, fb: FormBuilder) {
+    this.loginForm = fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  };
 
   onSubmit() {
-    this.userService.login(this.email, this.password).subscribe(
+    const email = this.loginForm.get('email')?.value;
+    const password = this.loginForm.get('password')?.value;
+
+    this.userService.login(email, password).subscribe(
       response => {
-        if (response && response.length > 0 && this.email !== '',
-          this.password !== ''
-          && this.email == this.userService.currentUser.email
-          && this.password == this.userService.currentUser.password) {
+        if (response && response.length > 0 && email !== '',
+          password !== ''
+          && email == this.userService.currentUser.email
+          && password == this.userService.currentUser.password && this.loginForm.valid) {
           this.router.navigate(['home']);
           console.log('Login realizado com sucesso !');
+          console.log(`EMAIL DO FORM:${email}`);
+          console.log(`EMAIL DO USUÁRIO ATUAL:${this.userService.currentUser.email}`);
+
           if (this.userService.currentUser.isAdmin) {
             console.log("Entrou !");
             this.router.navigate(['adminPedidos']);
           } else {
             this.router.navigate(['home']);
           };
+
         } else {
-          console.log("Email", this.email);
-          console.log("Senha", this.password);
+          console.log("Email", email);
+          console.log("Senha", password);
           this.errorMessage = 'Email ou senha incorretos';
           console.log(this.errorMessage);
         };
