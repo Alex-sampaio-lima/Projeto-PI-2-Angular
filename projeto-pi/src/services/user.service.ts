@@ -33,6 +33,8 @@ export class UserService implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedInAdmin();
+    console.log(` Nome do currentUser ${this.currentUser.nome}`);
+
   }
 
   getAllClientes() {

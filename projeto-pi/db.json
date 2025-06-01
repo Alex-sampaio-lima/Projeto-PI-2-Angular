@@ -83,33 +83,61 @@
       "created_at": "28/05/2025, 21:46:33",
       "updated_at": "28/05/2025, 21:46:33",
       "id": 7
+    },
+    {
+      "nome": "",
+      "telefone": "",
+      "email": "",
+      "cpf": "",
+      "tipo_pedido": "",
+      "forma_pagamento": "",
+      "valor_total": "",
+      "status": "",
+      "observacoes": "",
+      "created_at": "01/06/2025, 03:35:35",
+      "updated_at": "01/06/2025, 03:35:35",
+      "id": 8
+    },
+    {
+      "nome": null,
+      "telefone": null,
+      "email": null,
+      "cpf": null,
+      "tipo_pedido": "",
+      "forma_pagamento": "",
+      "valor_total": null,
+      "status": "",
+      "observacoes": "",
+      "created_at": "01/06/2025, 03:35:37",
+      "updated_at": "01/06/2025, 03:35:37",
+      "id": 9
     }
   ],
   "user": [
     {
       "id": 1,
-      "nome": "Alex",
+      "nome": "Alexsander",
       "password": "123456",
       "email": "alexsandersampaiolima12@gmail.com",
       "telefone": "11912263106",
       "cpf": "534.419.968-60",
       "isAdmin": true,
-      "created_at": "",
-      "updated_at": ""
+      "created_at": "01/06/2025, 03:20:14",
+      "updated_at": "01/06/2025, 03:20:14"
     },
     {
       "id": 2,
-      "nome": "Marcelo",
+      "nome": "Marcelo souza Maia Pereira",
       "password": "123456",
       "email": "marcelo@gmail.com",
       "telefone": "11912263106",
       "cpf": "533.424.912-44",
-      "isAdmin": false,
-      "created_at": "",
-      "updated_at": ""
+      "isAdmin": true,
+      "created_at": "01/06/2025, 03:20:14",
+      "updated_at": "01/06/2025, 03:20:14"
     },
     {
-      "nome": "Julia",
+      "nome": "Julia alves gomes da Silva",
       "email": "julia@gmail.com",
       "password": "123456",
       "telefone": "11940264106",
@@ -127,7 +155,7 @@
       "quantidade": 23,
       "custo_unitario": 4.99,
       "unidade_medida": "ml",
-      "observacoes": "Para crianças de até 10 anos",
+      "observacoes": "muito Caro !",
       "created_at": "2025-05-14T03:38:28.877Z",
       "updated_at": "2025-05-14T03:38:28.877Z",
       "id": 1
@@ -138,7 +166,7 @@
       "quantidade": 23,
       "custo_unitario": 24.5,
       "unidade_medida": "g",
-      "observacoes": "Fazer sem chocolate",
+      "observacoes": "muito Bom ",
       "created_at": "2025-05-14T03:39:08.346Z",
       "updated_at": "2025-05-14T03:39:08.346Z",
       "id": 2
@@ -160,7 +188,7 @@
       "quantidade": 21,
       "custo_unitario": 42,
       "unidade_medida": "",
-      "observacoes": "Fazer até amanhã essa merda ",
+      "observacoes": "Comprar mais 8 desse sem falta",
       "created_at": "2025-05-14T20:13:59.156Z",
       "updated_at": "2025-05-14T20:13:59.156Z",
       "id": 4

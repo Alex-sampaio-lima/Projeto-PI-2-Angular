@@ -58,7 +58,6 @@ export class ContainerFormModalPedidoComponent implements OnInit {
     this.listarPedidos();
   };
 
-
   listarPedidos() {
     this.pedidoService.getAllPedidos().subscribe((data: Pedido[]) => {
       this.pedidoData = data;

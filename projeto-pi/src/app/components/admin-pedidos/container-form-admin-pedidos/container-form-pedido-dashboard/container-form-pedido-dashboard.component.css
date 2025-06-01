@@ -167,12 +167,6 @@
 }
 
 
-
-
-
-
-
-
 /* Secão Dash Board Admin Pedidos */
 
 .container-dashBoard-admin-pedido {
@@ -207,7 +201,7 @@
   width: 100%;
   height: auto;
   margin-top: 10px;
-
+  padding: 14px 16px;
   /* border: 2px solid rgb(16, 206, 73); */
 }
 

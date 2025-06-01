@@ -12,21 +12,11 @@ import { Component, inject, OnInit } from '@angular/core';
 export class ContainerHeaderInfoPedidosComponent implements OnInit {
 
   userService = inject(UserService);
-  user: SafeUser | null = null;
-  nome: SafeUser | string = '';
+
+  userName: string = '';
+
   ngOnInit(): void {
-    const userString = localStorage.getItem("@currentUser");
-    if (userString) {
-      this.user = JSON.parse(userString) as SafeUser;
-      console.log(this.user.nome);
-    } else {
-      this.user = null;
-      this.nome = '';
-      console.log(`Usuário não encontrado`);
-    }
-
-  };
-
-
+    this.userName = this.userService.verifyCurrentUser.nome;
+  }
 
 };
