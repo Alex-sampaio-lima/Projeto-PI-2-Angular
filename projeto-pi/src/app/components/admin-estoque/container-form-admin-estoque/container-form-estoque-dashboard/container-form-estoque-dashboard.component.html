@@ -4,17 +4,18 @@
 
 <app-container-modal-form-estoque [visible]="modalVisible" (close)="modalVisible = false"
   (estoqueCriado)="listarEstoque()"></app-container-modal-form-estoque>
-<div class="container-dashBoard-admin-pedido">
-  <div class="container-header-dashboard">
-    <button class="btn-add-pedido-modal" type="button" (click)="openModal()">Adicionar Ao Estoque</button>
-    <div class="container-icon-btn-pesquisa">
-      <span class="container-input-icon">
-        <i class="material-icons" id="icon-pesquisa">search</i>
-      </span>
-      <input type="search" name="pesquisa-pedido" id="pesquisa-pedido" placeholder="Pesquisa"
-        [(ngModel)]="termoPesquisa" (change)="filtraEstoque">
-    </div>
+<div class="container-header-dashboard">
+  <button class="btn-add-pedido-modal" type="button" (click)="openModal()">Adicionar Ao Estoque</button>
+  <div class="container-icon-btn-pesquisa">
+    <span class="container-input-icon">
+      <i class="material-icons" id="icon-pesquisa">search</i>
+    </span>
+    <input type="search" name="pesquisa-pedido" id="pesquisa-pedido" placeholder="Pesquisa" [(ngModel)]="termoPesquisa"
+      (change)="filtraEstoque">
   </div>
+</div>
+
+<div class="container-dashBoard-admin-pedido">
 
   <table class="container-table-pedido">
     <thead>

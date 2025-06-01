@@ -35,7 +35,8 @@ export class ContainerFormEstoqueDashboardComponent implements OnInit {
         return estoque.nome_produto.toLowerCase().includes(termo) ||
           estoque.tipo_produto.toLowerCase().includes(termo) ||
           estoque.quantidade?.toString().includes(termo) ||
-          estoque.custo_unitario?.toString().includes(termo)
+          estoque.custo_unitario?.toString().includes(termo) ||
+          estoque.observacoes?.toString().includes(termo)
       });
     }
     return this.estoqueData;

@@ -42,16 +42,13 @@ export class ContainerFormPedidoDashBoardComponent implements OnInit {
 
   get filtrarPedidos() {
     const termo = this.termoPesquisa.toLowerCase();
-    console.log(this.pedidos.forEach(item => {
-      console.log(item.nome);
-    }));
 
     if (termo !== '') {
       return this.pedidos.filter(pedido => {
-        return pedido.nome.toLowerCase().includes(termo) ||
-          pedido.email.toLowerCase().includes(termo) ||
-          pedido.tipo_pedido.toLowerCase().includes(termo) ||
-          pedido.status.toLowerCase().includes(termo)
+        return pedido.nome?.toLowerCase().includes(termo) ||
+          pedido.email?.toLowerCase().includes(termo) ||
+          pedido.tipo_pedido?.toLowerCase().includes(termo) ||
+          pedido.status?.toLowerCase().includes(termo)
       });
     }
     return this.pedidos;
