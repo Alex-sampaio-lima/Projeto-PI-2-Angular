@@ -184,8 +184,7 @@
   /* border: 2px solid black; */
   display: flex;
   width: 100%;
-  height: 1000px;
-  max-height: 100%;
+  height: 30rem;
   flex-direction: column;
   align-items: center;
   align-self: stretch;
@@ -341,12 +340,13 @@ td {
   /* 28px */
 }
 
-/* .container-table-pedido {
-    display: inline;
-    height: 660px;
-    width: 100%;
-    overflow-y: auto;
-} */
+.container-table-pedido {
+  /* display: inline; */
+  height: auto;
+  width: 100%;
+  min-width: 400px;
+  /* overflow-y: auto; */
+}
 
 .container-title-check {
   width: 100%;
