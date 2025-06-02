@@ -69,20 +69,6 @@
       "created_at": "28/05/2025, 21:03:41",
       "updated_at": "28/05/2025, 21:03:41",
       "id": 6
-    },
-    {
-      "nome": null,
-      "telefone": null,
-      "email": null,
-      "cpf": null,
-      "tipo_pedido": "",
-      "forma_pagamento": "",
-      "valor_total": null,
-      "status": "",
-      "observacoes": "",
-      "created_at": "02/06/2025, 00:39:31",
-      "updated_at": "02/06/2025, 00:39:31",
-      "id": 7
     }
   ],
   "user": [
@@ -155,7 +141,7 @@
       "id": 3
     },
     {
-      "nome_produto": "Massa de Bolo",
+      "nome_produto": "Leite",
       "tipo_produto": "Ingrediente",
       "quantidade": 21,
       "custo_unitario": 42,
@@ -164,17 +150,6 @@
       "created_at": "2025-05-14T20:13:59.156Z",
       "updated_at": "2025-05-14T20:13:59.156Z",
       "id": 4
-    },
-    {
-      "nome_produto": "Creme de Leite",
-      "tipo_produto": "",
-      "quantidade": 5,
-      "custo_unitario": 12,
-      "unidade_medida": "",
-      "observacoes": "",
-      "created_at": "2025-05-28T23:25:00.981Z",
-      "updated_at": "2025-05-28T23:25:00.981Z",
-      "id": 5
     }
   ]
 }

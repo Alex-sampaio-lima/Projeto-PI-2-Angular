@@ -81,7 +81,7 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
     if ((this.dadosOriginais && this.dadosOriginais[campo] !== valor) || (this.dadosOriginais == null)) {
       this.alteracoesPendentes[campo] = valor;
     } else {
-      // delete this.alteracoesPendentes[campo];
+      delete this.alteracoesPendentes[campo];
       console.log('CAIU no delete');
     };
   };
