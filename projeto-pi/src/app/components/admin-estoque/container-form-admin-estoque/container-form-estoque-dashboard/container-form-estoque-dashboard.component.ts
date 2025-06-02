@@ -3,6 +3,7 @@ import { ContainerFormModalEstoqueComponent } from '../container-form-modal-esto
 import { Estoque } from '../../../../../interfaces/estoque';
 import { EstoqueService } from '../../../../../services/estoque.service';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../../../../../services/user.service';
 
 @Component({
   selector: 'app-container-form-estoque-dashboard',
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 export class ContainerFormEstoqueDashboardComponent implements OnInit {
 
   public estoqueService = inject(EstoqueService);
+  public userService = inject(UserService);
   modalVisible = false;
   estoqueData: Estoque[] = [];
   itensEmEstoque: number = 0;
@@ -55,7 +57,7 @@ export class ContainerFormEstoqueDashboardComponent implements OnInit {
   excluirEstoque(id: number): void {
     this.estoqueService.deletePedido(id).subscribe({
       next: () => {
-        console.log('Item do Estoque excluido com sucesso !');
+        this.userService.toastr.success("Item do Estoque excluido com sucesso !");
         this.listarEstoque();
       },
       error(e) {

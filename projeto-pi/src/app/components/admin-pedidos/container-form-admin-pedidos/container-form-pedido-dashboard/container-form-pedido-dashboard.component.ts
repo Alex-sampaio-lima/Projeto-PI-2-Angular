@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ContainerFormModalPedidoComponent } from '../container-form-modal-pedido/container-form-modal-pedido.component';
 import { Cliente } from '../../../../../interfaces/user';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-container-form-pedido-dashboard',
@@ -22,7 +23,7 @@ import { Cliente } from '../../../../../interfaces/user';
 export class ContainerFormPedidoDashBoardComponent implements OnInit {
   private pedidoService = inject(PedidoService);
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, public toastr: ToastrService) { }
 
   clientes: Cliente[] = [];
   pedidos: Pedido[] = [];
@@ -64,7 +65,7 @@ export class ContainerFormPedidoDashBoardComponent implements OnInit {
   excluirPedido(id: number): void {
     this.pedidoService.deletePedido(id).subscribe({
       next: () => {
-        console.log('Pedido excluido com sucesso !');
+        this.toastr.success('Pedido excluido com sucesso !');
         this.listarPedidos();
       },
       error: (err) => {

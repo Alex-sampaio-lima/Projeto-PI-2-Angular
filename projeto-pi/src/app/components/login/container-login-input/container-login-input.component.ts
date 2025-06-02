@@ -3,16 +3,22 @@ import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../../services/user.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-container-login-input',
-  imports: [RouterModule, FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [
+    RouterModule,
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
+    ToastrModule
+  ],
   templateUrl: './container-login-input.component.html',
-  styleUrl: './container-login-input.component.css'
+  styleUrl: './container-login-input.component.css',
 })
+
 export class ContainerLoginInputComponent {
-  // email: string = '';
-  // password: string = '';
   errorMessage: string = '';
   loginForm!: FormGroup;
   private userService = inject(UserService);
@@ -35,9 +41,9 @@ export class ContainerLoginInputComponent {
           && email == this.userService.currentUser.email
           && password == this.userService.currentUser.password && this.loginForm.valid) {
           this.router.navigate(['home']);
-          console.log('Login realizado com sucesso !');
-          console.log(`EMAIL DO FORM:${email}`);
-          console.log(`EMAIL DO USUÁRIO ATUAL:${this.userService.currentUser.email}`);
+          this.userService.toastr.success("Login realizado com sucesso !");
+          // console.log(`EMAIL DO FORM:${email}`);
+          // console.log(`EMAIL DO USUÁRIO ATUAL:${this.userService.currentUser.email}`);
 
           if (this.userService.currentUser.isAdmin) {
             console.log("Entrou !");
@@ -50,6 +56,7 @@ export class ContainerLoginInputComponent {
           console.log("Email", email);
           console.log("Senha", password);
           this.errorMessage = 'Email ou senha incorretos';
+          this.userService.toastr.error(this.errorMessage);
           console.log(this.errorMessage);
         };
       },

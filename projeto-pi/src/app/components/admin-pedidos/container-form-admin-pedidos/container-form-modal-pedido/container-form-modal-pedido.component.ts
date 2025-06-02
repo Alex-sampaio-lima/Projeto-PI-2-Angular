@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PedidoService } from '../../../../../services/pedido.service';
 import { Pedido } from '../../../../../interfaces/pedido';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-container-form-modal-pedido',
@@ -17,7 +18,7 @@ export class ContainerFormModalPedidoComponent implements OnInit {
 
   public pedidoService = inject(PedidoService);
 
-  constructor(public dialogRef: MatDialog, private fb: FormBuilder) { }
+  constructor(public dialogRef: MatDialog, private fb: FormBuilder, public toastr: ToastrService) { }
 
   pedidoForm!: FormGroup;
   private alteracoesPendentesPedido: Partial<Pedido> = {};
@@ -94,11 +95,13 @@ export class ContainerFormModalPedidoComponent implements OnInit {
       this.pedidoService.updatePedido(this.pedidoService.idPedido, this.alteracoesPendentesPedido).subscribe({
         next: (response) => {
           console.log(`Pedido atualizado com sucesso ! ${response}`);
+          this.toastr.success(`Pedido atualizado com sucesso !`);
           this.pedidoCriado.emit();
           this.resetForm();
         },
         error: (e) => {
           console.error(`Erro ao atualizar Estoque ! Erro: ${e}`);
+          this.toastr.error("Erro ao atualizar Estoque !")
         }
       });
     };
@@ -122,7 +125,7 @@ export class ContainerFormModalPedidoComponent implements OnInit {
 
     this.pedidoService.postPedido(novoPedido).subscribe({
       next: (response) => {
-        console.log(`Pedido criado: ${response}`);
+        this.toastr.success(`Pedido criado com sucesso !`);
         this.pedidoCriado.emit();
         this.listarPedidos();
         this.resetForm();

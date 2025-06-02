@@ -10,8 +10,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminGuardService } from '../services/admin-guard.service';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 export const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -36,7 +39,10 @@ const routerOptions: ExtraOptions = {
     MatDialogModule,
     FormsModule,
     BrowserModule,
-    HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
+
   ],
   exports: [RouterModule]
 })

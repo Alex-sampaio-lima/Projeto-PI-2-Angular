@@ -3,6 +3,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { Cliente, SafeUser, User } from '../interfaces/user';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Injectable({
@@ -29,7 +30,7 @@ export class UserService implements OnInit {
   }
   urlUser = ' http://localhost:3000/user';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, public toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.isLoggedInAdmin();
@@ -76,7 +77,7 @@ export class UserService implements OnInit {
     if (now.getTime() > item.expiry) {
       this.isAuthenticated = false;
       this.logOut();
-      alert('Tempo expirado !');
+      this.toastr.error('Tempo expirado !');
     };
 
     return item.value;
@@ -94,7 +95,7 @@ export class UserService implements OnInit {
         };
       }),
       catchError(error => {
-        console.error('Erro ao realizar login:', error);
+        this.toastr.error('Erro ao realizar login:', error);
         return of(null); // Esse of aqui, ele cria um Observable para retornar um null em vez de retornar um null diretamente, para seguir o fluxo normal do código
       })
     );
@@ -121,13 +122,13 @@ export class UserService implements OnInit {
           isAdmin: storedUser.isAdmin
         };
       }
-      console.log(`variavel do admin: ${this.verifyCurrentUser.isAdmin}`);
+      // console.log(`variavel do admin: ${this.verifyCurrentUser.isAdmin}`);
 
       this.verifyCurrentUser.isAdmin == true ? verifica = true : verifica = false;
 
-      console.log("Autenticado", this.isAuthenticated);
-      console.log("Usuário atual", this.verifyCurrentUser);
-      console.log("local storage", this.userLocalStorage);
+      // console.log("Autenticado", this.isAuthenticated);
+      // console.log("Usuário atual", this.verifyCurrentUser);
+      // console.log("local storage", this.userLocalStorage);
 
     }
     return verifica;

@@ -12,6 +12,8 @@ import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms'
 import { Estoque, EstoqueUpdate } from '../../../../../interfaces/estoque';
 import { EstoqueService } from '../../../../../services/estoque.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../../../../../services/user.service';
 
 @Component({
   selector: 'app-container-modal-form-estoque',
@@ -24,11 +26,12 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
 
   public estoqueService = inject(EstoqueService);
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, public toastr: ToastrService) { }
 
   estoqueForm!: FormGroup;
   private alteracoesPendentes: Partial<Estoque> = {};
   private dadosOriginais: Estoque | null = null;
+  public userService = inject(UserService);
 
   estoqueData: Estoque[] = [];
 
@@ -91,6 +94,7 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
     if (this.estoqueService.verificaAtualizacaoEstoque) {
       this.estoqueService.updateEstoque(this.estoqueService.idEstoque, this.alteracoesPendentes).subscribe({
         next: (response) => {
+          this.userService.toastr.success(`Estoque atualiazdo com sucesso !`);
           console.log(`Estoque atualiazdo com sucesso ! ${response}`);
           this.estoqueCriado.emit();
           this.resetForm();
@@ -117,12 +121,13 @@ export class ContainerFormModalEstoqueComponent implements OnInit {
 
     this.estoqueService.postEstoque(novoEstoque).subscribe({
       next: (response) => {
-        console.log(`Estoque criado: ${response}`);
+        this.userService.toastr.success(`Estoque criado com Sucesso !`);
         this.estoqueCriado.emit();
         this.resetForm();
       },
-      error(e) {
+      error: (e) => {
         console.error(`Erro ao criar estoque: ${e}`);
+        this.toastr.error(`Erro ao criar estoque!`);
       }
     });
   };
