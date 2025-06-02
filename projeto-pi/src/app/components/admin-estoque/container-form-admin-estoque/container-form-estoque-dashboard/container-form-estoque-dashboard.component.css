@@ -166,7 +166,7 @@
   transform: scale(1.05);
 }
 
-/* Secão Dash Board Admin Pedidos */
+/* Secão Dash Board Admin Estoque */
 
 .container-dashBoard-admin-pedido {
   display: flex;
@@ -178,6 +178,8 @@
   gap: 10px;
   padding: 14px 16px;
   overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   /* border: 2px solid black; */
 }
 

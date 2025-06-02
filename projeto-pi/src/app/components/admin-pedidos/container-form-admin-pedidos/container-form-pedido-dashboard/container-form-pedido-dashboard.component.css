@@ -191,6 +191,8 @@
   gap: 10px;
   padding: 14px 16px;
   overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .container-header-dashboard {
